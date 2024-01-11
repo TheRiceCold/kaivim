@@ -5,10 +5,12 @@ return {
 			require('mason').setup()
 		end
 	},
+
 	{
 		'williamboman/mason-lspconfig.nvim',
 		config = function()
-			require('mason-lspconfig').setup({
+      local mason_lspconfig = require 'mason-lspconfig'
+			mason_lspconfig.setup {
 				ensure_installed = { 
 					'lua_ls', 
 					'rnix',
@@ -19,7 +21,7 @@ return {
 					'pyright',
 					'tsserver',
 				}
-			})
+			}
 		end
 	},
 	{

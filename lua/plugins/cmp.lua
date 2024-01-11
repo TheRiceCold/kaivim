@@ -9,11 +9,11 @@ return {
 		'rafamadriz/friendly-snippets', -- useful snippets
 	},
 	config = function()
-		local cmp = require('cmp')
-		local luasnip = require('luasnip')
+		local cmp = require 'cmp'
+		local luasnip = require 'luasnip'
 
 		require('luasnip.loaders.from_vscode').lazy_load()
-		cmp.setup({
+		cmp.setup {
 			completion = {
 				completeopt = 'menu,menuone,preview,noselect',
 			},
@@ -38,7 +38,6 @@ return {
 				{ name = 'buffer' }, -- text within current buffer
 				{ name = 'path' }, -- file system paths
 			}),
-
-		})
+		}
 	end
 }
