@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [ ./utils ];
+  imports = [ ./utils ./extras ];
   config = {
     extraPlugins = with pkgs.vimPlugins; [ lazygit-nvim plenary-nvim ];
     plugins = {
@@ -10,7 +10,10 @@
       noice.enable = true;
       lualine.enable = true;
       nvim-cmp.enable = true;
-      markdown-preview.enable = true;
+      markdown-preview = {
+        enable = true;
+        browser = "firefox";
+      };
 
       treesitter = {
         enable = true;
@@ -22,8 +25,8 @@
       };
       treesitter-context.enable = true;
       treesitter-textobjects.enable = true;
-      ts-autotag.enable = true;
       rainbow-delimiters.enable = true;
+      ts-autotag.enable = true;
     };
 
     extraConfigLua = "require('telescope').load_extension('lazygit')";

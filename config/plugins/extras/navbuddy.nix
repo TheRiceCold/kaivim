@@ -4,7 +4,7 @@ let
 in {
   config = {
     plugins.navic.enable = true;
-    extraPlugins = [ pkgs.vimPlugins.nui-nvim navbuddy ];
+    extraPlugins = with pkgs.vimPlugins; [ nui-nvim navbuddy ];
 
     extraConfigLua = ''
       require('nvim-navbuddy').setup {
