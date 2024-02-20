@@ -3,19 +3,18 @@ let
 in {
   enable = true;
   defaults = {
-    prompt_prefix = "${icons.ui.telescope} ";
-    color_devicons = true;
     vimgrep_arguments = [
       "rg"
+      "-L"
       "--color=never"
       "--no-heading"
       "--with-filename"
       "--line-number"
       "--column"
       "--smart-case"
-      "--hidden"
-      "--glob=!.git/"
     ];
+    prompt_prefix = "${icons.ui.telescope} ";
+    color_devicons = true;
     mappings = [ ];
   };
   extensions = {

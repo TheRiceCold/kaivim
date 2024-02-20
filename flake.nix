@@ -20,6 +20,5 @@
       };
     in {
       packages.default = nvim;
-    })
-  ;
+    });
 }

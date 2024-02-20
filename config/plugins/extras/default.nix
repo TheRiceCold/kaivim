@@ -11,11 +11,15 @@ let
     };
   };
 in {
-  extraPlugins = with pkgs.vimPlugins; [ zen-mode-nvim vim-visual-multi ];
+  extraPlugins = with pkgs.vimPlugins; [
+    dial-nvim
+    zen-mode-nvim
+    vim-visual-multi
+  ];
 
   imports = [
     (import ./navbuddy.nix { inherit build pkgs; })
     (import ./comment-box.nix { inherit build; })
-    (import ./autopairs.nix { inherit build; })
+    # (import ./autopairs.nix { inherit build; })
   ];
 }

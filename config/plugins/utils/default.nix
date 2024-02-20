@@ -16,6 +16,18 @@ in {
 
     nvim-colorizer.enable = true;
     # nvim-ufo.enable = true; # FIX: this mf folds everything
+    nvim-autopairs = {
+      enable = true;
+      mapBs = true;
+      checkTs = true;
+      disableInMacro = false;
+      enableAfterQuote = true;
+      enableMoveright = true;
+      disableInVisualblock = false;
+      enableCheckBracketLine = false;
+      disabledFiletypes = [ "TelescopePrompt" "spectre_panel" ];
+    };
+
     obsidian.enable = true;
     todo-comments.enable = true;
     toggleterm = {

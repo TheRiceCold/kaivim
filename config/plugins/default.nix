@@ -7,6 +7,7 @@
     telescope = import ./telescope.nix;
 
     noice.enable = true;
+    fidget.enable = true;
     lualine.enable = true;
     nvim-cmp.enable = true;
     markdown-preview = {
