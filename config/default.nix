@@ -10,8 +10,7 @@
 
     extraConfigLua = ''
       local g = vim.g
-      local o = vim.o
-        -- Neovide
+
       if g.neovide then
         -- Neovide options
         g.neovide_refresh_rate = 60
@@ -23,14 +22,12 @@
         g.neovide_cursor_animate_in_insert_mode = true
 
         g.neovide_cursor_vfx_mode = "ripple"
-        g.neovide_cursor_vfx_particle_lifetime = 1.5
-        g.neovide_cursor_vfx_particle_density = 7.0
-        g.neovide_cursor_vfx_particle_speed = 10.0
         g.neovide_cursor_vfx_particle_curl = 1.0
+        g.neovide_cursor_vfx_particle_speed = 10.0
+        g.neovide_cursor_vfx_particle_density = 7.0
+        g.neovide_cursor_vfx_particle_lifetime = 1.5
 
-        -- Neovide Fonts
-        o.guifont = "JetBrainsMono Nerd Font:h13"
-        -- o.guifont = "FiraMono Nerd Font:Medium:h14"
+        vim.o.guifont = "JetBrainsMono Nerd Font:h13"
       end
     '';
   };

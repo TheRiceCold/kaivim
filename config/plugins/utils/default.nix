@@ -3,6 +3,7 @@ let
   icons = import ../../icons.nix;
 in {
   plugins = {
+    alpha = import ./alpha.nix;
     comment-nvim = {
       enable = true;
       sticky = true;

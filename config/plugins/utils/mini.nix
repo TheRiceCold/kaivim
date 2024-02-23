@@ -58,9 +58,8 @@
       };
     };
 
-    splitjoin = { };
-    starter = { };
-
+    # splitjoin = { };
+    # starter = { silent = true; };
     tabline = { };
     # test = { };
     trailspace = { };
