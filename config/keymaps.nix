@@ -1,52 +1,118 @@
+{ lib, ... }:
 let
   cmd = exec: "<cmd>${exec}<cr>";
   lua = arg: cmd "lua ${arg}";
   lead = key: "<leader>${key}";
-  telescope = arg: (cmd "Telescope ${arg} theme=ivy");
-  toggleterm = opts: (lua "require('toggleterm.terminal').Terminal:new({ ${opts}, hidden = true, on_open = function(_) vim.cmd 'startinsert!' end, }):toggle()");
 
-  k = mode: key: action: desc: {
-    inherit key action mode;
-    options.desc = desc;
+  k = key: action: desc: {
+    inherit key action;
+    mode = ""; options.desc = desc;
   };
 
-  git = key: act: desc: (k "" (lead "g${key}") act desc);
-  lsp = key: act: desc: (k "" (lead "l${key}") act desc);
-  buffer = key: act: desc: (k "" (lead key) (cmd act) desc);
-  find = key: act: desc: (k "" (lead "f${key}") (telescope act) desc);
-  term = key: cmd: desc: (k "" (lead "t${key}") (toggleterm cmd) desc);
-in [
-  (k ""  "<S-u>" "<C-r>" "Redo")
-  (k "" "<S-l>" (cmd "bnext") "Next buffer")
-  (k "" "<S-h>" (cmd "bprevious") "Previous buffer")
+  telescope = arg: (cmd "Telescope ${arg} theme=ivy");
+  toggleterm = cmd: insert-mode: lua (lib.strings.concatStrings [
+    "require('toggleterm.terminal').Terminal:new({"
+    "hidden = true,"
+    ''${if cmd == "" then "" else "cmd='${cmd}',"}''
+    ''${if insert-mode then "on_open = function(_) vim.cmd 'startinsert!' end," else ""}''
+    "}):toggle()"
+  ]);
 
-  # Buffers
-  (buffer "b" "enew" "New Buffer")
-  (buffer "w" "write" "Write Buffer")
-  (buffer "d" "bdelete" "Delete Buffer")
+  git = let
+    bind = key: act: (k (lead "g${key}") act);
+  in {
+    lazy = key: (bind key (cmd "LazyGit") "Lazygit");
+    status = key: (bind key "git_status" "Status");
+    branches = key: (bind key "git_branches" "Branches");
+  };
 
-  # Telescope
-  (find "f" "fd" "Find files")
-  (find "b" "buffers" "Find buffers")
-  (find "k" "keymaps" "Find keymaps")
-  (find "j" "jumplist" "Find jumplist")
-  (find "g" "live_grep" "Find live grep")
-  (find "e" "file_browser" "Browse explorer")
-  (find "a" "fd follow=true hidden=true" "Find all files")
+  buffer = {
+    next = key: (k key (cmd "bnext") "Next buffer");
+    prev = key: (k key (cmd "bprevious") "Previous buffer");
 
-  # Git
-  (git "g" (cmd "LazyGit") "Lazygit")
-  (git "s" (telescope "git_status") "Git status")
-  (git "b" (telescope "git_branches") "Git Branches")
+    new = key: (k (lead key) (cmd "enew") "New Buffer");
+    write = key: (k (lead key) (cmd "write") "Write Buffer");
+    delete = key: (k (lead key) (cmd "bdelete") "Delete Buffer");
+  };
 
-  (lsp "n" (cmd "Navbuddy") "Navbuddy")
+  find = let
+    bind = key: act: (k (lead "f${key}") (telescope act));
+  in {
+    files = key: (bind key "fd" "Files");
+    buffers = key: (bind key "buffers" "Buffers");
+    keymaps = key: (bind key "keymaps" "Keymaps");
+    grep = key: (bind key "live_grep" "Live Grep");
+    jumplist = key: (bind key "jumplist" "Jumplist");
+    browse-files = key: (bind key "file_browser" "File Browser");
+    hidden-files = key: (bind key "fd follow=true hidden=true" "Files (including hidden)");
+  };
 
-  (term "t" "" "Terminal")
-  (term "g" " cmd = 'lazygit' " "LazyGit")
+  term = let
+    bind = { key, cmd, desc, insert-mode }: k (lead "t${key}") (toggleterm cmd insert-mode ) desc;
+  in {
+    empty = key: (bind {
+      cmd = "";
+      inherit key;
+      desc = "Terminal";
+      insert-mode = false;
+    });
 
-  # Utils
-  (k "" (lead "e") (lua "MiniFiles.open()") "Explorer")
+    lazygit = key: (bind {
+      inherit key;
+      cmd = "lazygit";
+      desc = "LazyGit";
+      insert-mode = true;
+    });
+  };
 
-  # Options
-  (k "" (lead "n") (cmd "set nu!") "Toggle line numbers")
-]
+  lsp = let
+    bind = key: act: (k (lead "l${key}") act);
+  in {
+    navbuddy = key: (bind key (cmd "Navbuddy") "Navbuddy");
+  };
+
+  common = {
+    explorer = key: (k (lead key) (lua "MiniFiles.open()") "Explorer");
+    toggle-numbers = key: (k (lead key) (cmd "set nu!") "Toggle line numbers");
+  };
+
+  remap = {
+    redo = key: (k key "<C-r>" "Redo");
+  };
+in {
+  keymaps = [
+    # NOTE: Common (leader <key>)
+    (common.explorer "e")
+    (common.toggle-numbers "n")
+
+    # NOTE: Buffers (leader <key>)
+    (buffer.new "n")
+    (buffer.write  "w")
+    (buffer.delete "d")
+    (buffer.next "<S-l>")
+    (buffer.prev "<S-h>")
+
+    # NOTE: Find (key: leader f<key>)
+    (find.grep "g")
+    (find.files "f")
+    (find.buffers "b")
+    (find.keymaps "k")
+    (find.jumplist "j")
+    (find.browse-files "e")
+    (find.hidden-files "a")
+
+    # NOTE: Git (key: leader g<key>)
+    (git.lazy "g")
+    (git.status  "s")
+    (git.branches "b")
+
+    # NOTE: Terminal (key: leader t<key>)
+    (term.empty "t")
+    (term.lazygit "g")
+
+    # NOTE: LSP Commands (key: leader l<key>)
+    (lsp.navbuddy "n")
+
+    (remap.redo "<S-u>")
+  ];
+}

@@ -20,8 +20,12 @@
         (cl "l" "+Lsp")
         (cl "f" "+Find")
         (cl "c" "+Comment")
-        (cl "s" "+Silicon")
         (cl "t" "+Terminal")
+
+        # Some extra stuff
+        (cl "N" "+Nix")
+        (cl "L" "+LaTeX")
+        (cl "S" "+Silicon")
 
         (c "gD" "references")
         (c "gi" "implementation")
