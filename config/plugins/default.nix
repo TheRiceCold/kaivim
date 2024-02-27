@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [ ./utils ./extras ];
+  imports = [ ./utils ./extras ./languages ];
   extraPlugins = with pkgs.vimPlugins; [ lazygit-nvim plenary-nvim ];
   plugins = {
     lsp = import ./lsp.nix;
@@ -10,10 +10,6 @@
     fidget.enable = true;
     lualine.enable = true;
     nvim-cmp.enable = true;
-    markdown-preview = {
-      enable = true;
-      browser = "firefox";
-    };
 
     treesitter = {
       enable = true;

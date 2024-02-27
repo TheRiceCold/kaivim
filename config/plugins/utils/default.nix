@@ -29,7 +29,7 @@ in {
       disabledFiletypes = [ "TelescopePrompt" "spectre_panel" ];
     };
 
-    obsidian.enable = true;
+    # obsidian.enable = true;
     todo-comments.enable = true;
     toggleterm = {
       enable = true;

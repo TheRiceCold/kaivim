@@ -24,6 +24,7 @@
 
         # Some extra stuff
         (cl "N" "+Nix")
+        (cl "D" "+Docs")
         (cl "L" "+LaTeX")
         (cl "S" "+Silicon")
 
