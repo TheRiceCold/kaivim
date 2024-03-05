@@ -6,6 +6,7 @@
       autostart = true;
     };
     html.enable = true;
+    ltex.enable = true;
     cssls.enable = true;
     volar.enable = true;
     bashls.enable = true;

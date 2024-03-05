@@ -1,3 +1,4 @@
+# TODO: Improve and refactor code
 { lib, ... }:
 let
   cmd = exec: "<cmd>${exec}<cr>";
@@ -33,8 +34,8 @@ let
     bind = key: act: (k (lead "g${key}") act);
   in {
     lazy = key: (bind key (cmd "LazyGit") "Lazygit");
-    status = key: (bind key "git_status" "Status");
-    branches = key: (bind key "git_branches" "Branches");
+    status = key: (bind key (telescope "git_status") "Status");
+    branches = key: (bind key (telescope "git_branches") "Branches");
   };
 
   buffer = {
@@ -48,15 +49,17 @@ let
   };
 
   find = let
-    bind = key: act: (k (lead "f${key}") (telescope act));
+    bind = key: (k (lead "f${key}"));
+    fd = key: act: (bind key (telescope act));
   in {
-    files = key: (bind key "fd" "Files");
-    buffers = key: (bind key "buffers" "Buffers");
-    keymaps = key: (bind key "keymaps" "Keymaps");
-    grep = key: (bind key "live_grep" "Live Grep");
-    jumplist = key: (bind key "jumplist" "Jumplist");
-    browse-files = key: (bind key "file_browser" "File Browser");
-    hidden-files = key: (bind key "fd follow=true hidden=true" "Files (including hidden)");
+    files = key: (fd key "fd" "Files");
+    buffers = key: (fd key "buffers" "Buffers");
+    keymaps = key: (fd key "keymaps" "Keymaps");
+    grep = key: (fd key "live_grep" "Live Grep");
+    jumplist = key: (fd key "jumplist" "Jumplist");
+    todo = key: (bind key (cmd "TodoTelescope") "Todo");
+    browse-files = key: (fd key "file_browser" "File Browser");
+    hidden-files = key: (fd key "fd follow=true hidden=true" "Files (including hidden)");
   };
 
   term = let
@@ -78,21 +81,21 @@ let
   };
 
   lsp = let
-    bind = key: act: (k (lead "l${key}") act);
+    bind = key: act: (k (lead "l${key}") (cmd act));
   in {
-    start = key: (bind key (cmd "LspStart") "Start");
-    stop = key: (bind key (cmd "LspStop") "Stop/Kill");
-    restart = key: (bind key (cmd "LspRestart") "Restart");
-    navbuddy = key: (bind key (cmd "Navbuddy") "Navbuddy");
+    start = key: (bind key  "LspStart" "Start");
+    stop = key: (bind key "LspStop" "Stop/Kill");
+    restart = key: (bind key "LspRestart" "Restart");
+    navbuddy = key: (bind key "Navbuddy" "Navbuddy");
   };
 
   latex = let
-    bind = key: act: (k (lead "L${key}") act);
+    bind = key: act: (k (lead "L${key}") (cmd act));
   in {
-    view = key: (bind key (cmd "VimtexView") "View");
-    errors = key: (bind key (cmd "VimtexErrors") "Errors");
-    reload = key: (bind key (cmd "VimtexReload") "Reload");
-    compile = key: (bind key (cmd "VimtexCompile") "Compile");
+    view = key: (bind key "VimtexView" "View");
+    errors = key: (bind key "VimtexErrors" "Errors");
+    reload = key: (bind key "VimtexReload" "Reload");
+    compile = key: (bind key "VimtexCompile" "Compile");
   };
 
   nix = let
@@ -146,6 +149,7 @@ in {
     # NOTE: Find (key: leader f<key>)
     (find.grep "g")
     (find.files "f")
+    (find.todo "t")
     (find.buffers "b")
     (find.keymaps "k")
     (find.jumplist "j")
