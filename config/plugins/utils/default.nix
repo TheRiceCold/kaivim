@@ -30,7 +30,16 @@ in {
     };
 
     # obsidian.enable = true;
-    todo-comments.enable = true;
+    todo-comments = {
+      enable = true;
+      keywords = {
+        TODO = { icon = ""; color = "info"; };
+        DOCS = { icon = ""; color = "info"; };
+        NOTE = { icon = ""; color = "hint"; };
+        INFO = { icon = ""; color = "hint"; };
+      };
+    };
+
     toggleterm = {
       enable = true;
       direction = "float";

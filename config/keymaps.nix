@@ -63,13 +63,14 @@ let
   };
 
   term = let
-    bind = { key, cmd, desc, insert-mode }: k (lead "t${key}") (toggleterm cmd insert-mode ) desc;
+    bind = {
+      key, cmd, desc, insert-mode ? false,
+    }: (k (lead "t${key}") (toggleterm cmd insert-mode) desc);
   in {
     empty = key: (bind {
       cmd = "";
       inherit key;
       desc = "Terminal";
-      insert-mode = false;
     });
 
     lazygit = key: (bind {
@@ -99,54 +100,46 @@ let
   };
 
   nix = let
-    bind = { key, cmd, desc, insert-mode }: k (lead "N${key}") (toggleterm cmd insert-mode ) desc;
+    bind = {
+      key, cmd, desc, insert-mode ? false
+    }: k (lead "N${key}") (toggleterm cmd insert-mode) desc;
   in {
     profile-install = key: bind {
       inherit key;
-      insert-mode = false;
       desc = "Profile Install";
       cmd = "nix profile install";
-    };
-    profile-list = key: bind {
-      inherit key;
-      insert-mode = false;
-      desc = "Profile List";
-      cmd = "nix profile list";
     };
     develop = key: bind {
       inherit key;
       desc = "Develop";
       cmd = "nix develop";
-      insert-mode = false;
     };
     packages =  key: bind {
       inherit key;
-      insert-mode = false;
       desc = "Search packages";
       cmd = browser "https://search.nixos.org/packages";
     };
     update =  key: bind {
       inherit key;
       desc = "Update";
-      insert-mode = false;
       cmd = "nix flake update";
     };
   };
 in {
   keymaps = [
-    # NOTE: Common (leader <key>)
+    # INFO: Common (leader <key>)
     (common.explorer "e")
     (common.zen-mode "z")
     (common.toggle-numbers "n")
 
-    # NOTE: Buffers (leader <key>)
+    # INFO: Buffers (leader <key>)
     (buffer.write  "w")
     (buffer.close "c")
     (buffer.delete "d")
     (buffer.next "<S-l>")
     (buffer.prev "<S-h>")
 
-    # NOTE: Find (key: leader f<key>)
+    # INFO: Find (key: leader f<key>)
     (find.grep "g")
     (find.files "f")
     (find.todo "t")
@@ -156,32 +149,31 @@ in {
     (find.browse-files "e")
     (find.hidden-files "a")
 
-    # NOTE: Git (key: leader g<key>)
+    # INFO: Git (key: leader g<key>)
     (git.lazy "g")
     (git.status  "s")
     (git.branches "b")
 
-    # NOTE: Terminal (key: leader t<key>)
+    # INFO: Terminal (key: leader t<key>)
     (term.empty "t")
     (term.lazygit "g")
 
-    # NOTE: LSP Commands (key: leader l<key>)
+    # INFO: LSP Commands (key: leader l<key>)
     (lsp.navbuddy "n")
     (lsp.restart "r")
     (lsp.start "s")
     (lsp.stop "k")
 
-    # NOTE: Nix Commands (key: leader L<key>)
+    # INFO: Nix Commands (key: leader L<key>)
     (latex.view "v")
     (latex.errors "e")
     (latex.reload "r")
     (latex.compile "c")
 
-    # NOTE: Nix Commands (key: leader N<key>)
+    # INFO: Nix Commands (key: leader N<key>)
     (nix.update "u")
     (nix.develop "d")
     (nix.packages "p")
-    (nix.profile-list "l")
     (nix.profile-install "i")
 
     (remap.redo "<S-u>")

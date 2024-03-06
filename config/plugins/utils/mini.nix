@@ -1,5 +1,4 @@
-# Nodule references: https://github.com/echasnovski/mini.nvim/blob/main/readmes
-# NOTE: View keymaps at ../../keymaps.nix
+# DOCS: https://github.com/echasnovski/mini.nvim/blob/main/readmes
 { icons, ... }: {
   enable = true;
   modules = {
@@ -16,6 +15,7 @@
         c = keys: desc: { mode = ""; inherit keys desc; };
         cl = key: desc: (c "<leader>${key}" desc);
       in [
+        # NOTE: to see keymaps go to `config/keymaps.nix`
         (cl "g" "+Git")
         (cl "l" "+Lsp")
         (cl "f" "+Find")
@@ -41,6 +41,7 @@
     };
 
     files = {
+      content = { };
       mappings = { };
       windows.preview = true;
     };
@@ -49,21 +50,11 @@
 
     jump2d = { view.dim = true; mappings.start_jumping = "f"; };
 
-    move = {
-      mappings = {
-        left = "<S-,>";
-        right = "<S-.>";
-        # up = "<S-k>";
-        # down = "<S-j>";
+    move = { };
 
-        line_left = "<S-,>";
-        line_right = "<S-.>";
-        # line_up = "<S-k>";
-        # line_down = "<S-j>";
-      };
-    };
+    pick = { };
 
-    # splitjoin = { };
+    splitjoin = { };
     # starter = { silent = true; };
     tabline = { };
     # test = { };
