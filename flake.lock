@@ -194,8 +194,8 @@
     "nixpkgs": {
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-cy6ArO4k5qTx+l5o+0mL9f5fa86tYUX3ozE1S+Txlds=",
-        "path": "/nix/store/lwyjz70qh12nq6cb7fixl85vryzxqm3c-source",
+        "narHash": "sha256-6hqgQ8OK6gsMu1VtcGKBxKQInRLHtzulDo9Z5jxHEFY=",
+        "path": "/nix/store/gig8j85kj7ybjy3ksn6k3aich8j2k59y-source",
         "type": "path"
       },
       "original": {
@@ -230,11 +230,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1709716782,
-        "narHash": "sha256-ixGqSqMdLz26StLz7gFSzvyMnHXz26p831IrAv3O3y0=",
+        "lastModified": 1709884647,
+        "narHash": "sha256-yr29zOPeYmK60BVdb/T4ZDjwR+bEj7F5cHzl/5IhvM0=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "5293373732f51f83017484831bc26365caecd965",
+        "rev": "cd32dcd50fa98cd03e2916b6fd47e31deffbca24",
         "type": "github"
       },
       "original": {

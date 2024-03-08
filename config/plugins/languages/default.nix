@@ -4,7 +4,10 @@
   plugins = {
     markdown-preview = {
       enable = true;
-      browser = "firefox";
+      settings = {
+        auto_close = false;
+        browser = "firefox";
+      };
     };
     typescript-tools = {
       enable = true;

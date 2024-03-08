@@ -90,6 +90,12 @@ let
     navbuddy = key: (bind key "Navbuddy" "Navbuddy");
   };
 
+  md = let
+    bind = key: act: (k (lead "M${key}") (cmd act));
+  in {
+    view = key: (bind key "MarkdownPreviewToggle" "Toggle View");
+  };
+
   latex = let
     bind = key: act: (k (lead "L${key}") (cmd act));
   in {
@@ -164,11 +170,14 @@ in {
     (lsp.start "s")
     (lsp.stop "k")
 
-    # INFO: Nix Commands (key: leader L<key>)
+    # INFO: LaTeX Commands (key: leader L<key>)
     (latex.view "v")
     (latex.errors "e")
     (latex.reload "r")
     (latex.compile "c")
+
+    # INFO: Markdown Commands (key: leader M<key>)
+    (md.view "v")
 
     # INFO: Nix Commands (key: leader N<key>)
     (nix.update "u")

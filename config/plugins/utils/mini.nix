@@ -2,8 +2,7 @@
 { icons, ... }: {
   enable = true;
   modules = {
-    animate = { };
-
+    # animate = { };
     basics = {
       options = { };
       mappings = { basic = true; windows = true; };
@@ -27,6 +26,7 @@
         (cl "D" "+Docs")
         (cl "L" "+LaTeX")
         (cl "S" "+Silicon")
+        (cl "M" "+Markdown")
 
         (c "gD" "references")
         (c "gi" "implementation")

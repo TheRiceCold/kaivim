@@ -7,9 +7,9 @@
     telescope = import ./telescope.nix;
 
     noice.enable = true;
-    fidget.enable = true;
+    # fidget.enable = true;
     lualine.enable = true;
-    nvim-cmp.enable = true;
+    cmp.enable = true;
 
     treesitter = {
       enable = true;

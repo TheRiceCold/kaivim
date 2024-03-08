@@ -1,4 +1,4 @@
-###### *<div align=right><sub>contact: dalewaltergh@gmail.com</sub></div>*
+###### *<div align=right><sub>Last nix update: march 9, 2024</sub></div>*
 
 <h1 align=center>
     Kaivim <br />
