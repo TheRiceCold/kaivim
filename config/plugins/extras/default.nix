@@ -18,8 +18,11 @@ in {
   ];
 
   imports = [
-    (import ./navbuddy.nix { inherit build pkgs; })
-    (import ./comment-box.nix { inherit build; })
-    # (import ./autopairs.nix { inherit build; })
+    (import ./navbuddy.nix build pkgs)
+    (import ./harpoon.nix build)
+    (import ./heirline build)
+
+    # (import ./comment-box.nix build)
+    # (import ./autopairs.nix build)
   ];
 }

@@ -1,11 +1,9 @@
 {
   catppuccin = {
     enable = true;
-    background = {
-      dark = "mocha";
-    };
     flavour = "mocha"; # latte, mocha, frappe, macchiato
-      dimInactive.enabled = true;
+    background = { dark = "mocha"; };
+    dimInactive.enabled = true;
     integrations = {
       cmp = true;
       noice = true;
@@ -14,9 +12,7 @@
       treesitter_context = true;
       telescope.enabled = true;
       mini.enabled = true;
-      native_lsp = {
-        enabled = true;
-      };
+      native_lsp = { enabled = true; };
     };
   };
 }

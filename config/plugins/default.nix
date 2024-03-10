@@ -8,9 +8,8 @@
 
     noice.enable = true;
     # fidget.enable = true;
-    lualine.enable = true;
-    cmp.enable = true;
 
+    cmp.enable = true;
     treesitter = {
       enable = true;
       indent = true;
@@ -23,6 +22,10 @@
     treesitter-textobjects.enable = true;
     rainbow-delimiters.enable = true;
     ts-autotag.enable = true;
+
+    dap = {
+      enable = true;
+    };
   };
 
   extraConfigLua = "require('telescope').load_extension('lazygit')";

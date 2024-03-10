@@ -1,4 +1,3 @@
-# TODO: Improve and refactor code
 { lib, ... }:
 let
   cmd = exec: "<cmd>${exec}<cr>";

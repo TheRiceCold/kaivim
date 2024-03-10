@@ -1,5 +1,5 @@
 # DOCS: https://github.com/echasnovski/mini.nvim/blob/main/readmes
-{ icons, ... }: {
+icons: {
   enable = true;
   modules = {
     # animate = { };
@@ -8,6 +8,7 @@
       mappings = { basic = true; windows = true; };
       autocommands = { basic = true; relnum_with_alt = true; };
     };
+    bufremove = { };
 
     clue = {
       clues = let
@@ -19,6 +20,7 @@
         (cl "l" "+Lsp")
         (cl "f" "+Find")
         (cl "c" "+Comment")
+        (cl "h" "+Harpoon")
         (cl "t" "+Terminal")
 
         # Some extra stuff
@@ -47,16 +49,13 @@
     };
 
     indentscope.symbol = icons.ui.line.left;
-
     jump2d = { view.dim = true; mappings.start_jumping = "f"; };
 
     move = { };
-
     pick = { };
-
     splitjoin = { };
     # starter = { silent = true; };
-    tabline = { };
+    # tabline = { };
     # test = { };
     trailspace = { };
   };

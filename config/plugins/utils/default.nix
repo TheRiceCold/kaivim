@@ -47,6 +47,6 @@ in {
       floatOpts = { border = "curved"; };
     };
 
-    mini = import ./mini.nix { inherit icons; };
+    mini = import ./mini.nix icons;
   };
 }
