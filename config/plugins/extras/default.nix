@@ -18,10 +18,10 @@ in {
   ];
 
   imports = [
-    (import ./navbuddy.nix build pkgs)
-    (import ./harpoon.nix build)
-    (import ./heirline build)
+    # (import ./harpoon.nix build)
+    # (import ./navbuddy.nix build pkgs)
 
+    # (import ./heirline build)
     # (import ./comment-box.nix build)
     # (import ./autopairs.nix build)
   ];

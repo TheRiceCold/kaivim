@@ -86,7 +86,9 @@ let
     start = key: (bind key  "LspStart" "Start");
     stop = key: (bind key "LspStop" "Stop/Kill");
     restart = key: (bind key "LspRestart" "Restart");
-    navbuddy = key: (bind key "Navbuddy" "Navbuddy");
+    rename = key: (bind key "Lspsaga rename" "Rename");
+    outline = key: (bind key "Lspsaga outline" "Outline");
+    term = key: (bind key "Lspsaga term_toggle" "Terminal");
   };
 
   md = let
@@ -164,10 +166,12 @@ in {
     (term.lazygit "g")
 
     # INFO: LSP Commands (key: leader l<key>)
-    (lsp.navbuddy "n")
-    (lsp.restart "r")
+    (lsp.outline "o")
+    (lsp.restart "R")
+    (lsp.rename "r")
     (lsp.start "s")
     (lsp.stop "k")
+    (lsp.term "t")
 
     # INFO: LaTeX Commands (key: leader L<key>)
     (latex.view "v")

@@ -8,7 +8,6 @@ icons: {
       mappings = { basic = true; windows = true; };
       autocommands = { basic = true; relnum_with_alt = true; };
     };
-    bufremove = { };
 
     clue = {
       clues = let

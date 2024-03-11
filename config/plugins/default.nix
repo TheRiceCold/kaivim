@@ -1,10 +1,13 @@
 { pkgs, ... }:
 {
-  imports = [ ./utils ./extras ./languages ];
+  imports = [ ./lualine.nix ./utils ./languages ];
   extraPlugins = with pkgs.vimPlugins; [ lazygit-nvim plenary-nvim ];
   plugins = {
     lsp = import ./lsp.nix;
+    lspsaga.enable = true;
     telescope = import ./telescope.nix;
+
+    bufferline.enable = true;
 
     noice.enable = true;
     # fidget.enable = true;
