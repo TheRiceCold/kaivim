@@ -51,6 +51,7 @@ icons: {
     jump2d = { view.dim = true; mappings.start_jumping = "f"; };
 
     move = { };
+
     pick = { };
     splitjoin = { };
     # starter = { silent = true; };

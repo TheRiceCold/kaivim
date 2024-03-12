@@ -89,6 +89,7 @@ let
     rename = key: (bind key "Lspsaga rename" "Rename");
     outline = key: (bind key "Lspsaga outline" "Outline");
     term = key: (bind key "Lspsaga term_toggle" "Terminal");
+    action = key: (bind key "Lspsaga code_action" "Code Action");
   };
 
   md = let
@@ -168,6 +169,7 @@ in {
     # INFO: LSP Commands (key: leader l<key>)
     (lsp.outline "o")
     (lsp.restart "R")
+    (lsp.action "a")
     (lsp.rename "r")
     (lsp.start "s")
     (lsp.stop "k")

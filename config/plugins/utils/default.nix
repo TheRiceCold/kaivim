@@ -40,6 +40,13 @@ in {
       };
     };
 
+    toggleterm = {
+      enable = true;
+      direction = "float";
+      openMapping = "<c-\\>";
+      floatOpts = { border = "curved"; };
+    };
+
     mini = import ./mini.nix icons;
   };
 }
