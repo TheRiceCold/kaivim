@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [
     ./plugins
@@ -10,5 +11,6 @@
     options = import ./options.nix;
     colorschemes = import ./colorschemes.nix;
 		colorscheme = "catppuccin";
+    extraPackages = with pkgs; [ ripgrep lazygit tectonic ];
   };
 }

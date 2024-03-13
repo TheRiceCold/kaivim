@@ -1,6 +1,4 @@
 {
   enable = true;
-  plugins = [
-
-  ];
+  plugins = [ ];
 }

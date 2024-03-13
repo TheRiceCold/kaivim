@@ -42,7 +42,7 @@ let
     prev = key: (k key (cmd "bprevious") "Previous buffer");
 
     new = key: (k (lead key) (cmd "enew") "New Buffer");
-    write = key: (k (lead key) (cmd "wa!") "Write Buffer");
+    write = key: (k (lead key) (cmd "w!") "Write Buffer");
     delete = key: (k (lead key) (cmd "update! | bdelete") "Delete Buffer");
     close = key: (k (lead key) (cmd "clo") "Close Buffer Window (Split)");
   };
