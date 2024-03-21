@@ -56,8 +56,8 @@ let
     keymaps = key: (fd key "keymaps" "Keymaps");
     grep = key: (fd key "live_grep" "Live Grep");
     jumplist = key: (fd key "jumplist" "Jumplist");
-    todo = key: (bind key (cmd "TodoTelescope") "Todo");
     browse-files = key: (fd key "file_browser" "File Browser");
+    todo = key: (bind key (cmd "TodoTelescope theme=ivy") "Todo");
     hidden-files = key: (fd key "fd follow=true hidden=true" "Files (including hidden)");
   };
 

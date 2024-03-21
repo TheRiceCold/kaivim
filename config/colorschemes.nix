@@ -1,8 +1,9 @@
 {
-  oxocarbon.enable = true;
-  # gruvbox.enable = true;
-  # poimandres.enable = true;
-  # kanagawa.enable = true;
+  poimandres.enable = true;
+# gruvbox.enable = true;
+# kanagawa.enable = true;
+  # rose-pine.enable = true;
+  # oxocarbon.enable = true;
   # catppuccin = {
   #   enable = true;
   #   flavour = "mocha"; # latte, mocha, frappe, macchiato

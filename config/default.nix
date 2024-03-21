@@ -10,7 +10,7 @@
     globals.mapleader = " ";
     options = import ./options.nix;
     colorschemes = import ./colorschemes.nix;
-		colorscheme = "oxocarbon";
+		colorscheme = "poimandres";
     extraPackages = with pkgs; [ ripgrep lazygit tectonic ];
   };
 }

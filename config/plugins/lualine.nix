@@ -4,16 +4,15 @@
     local lualine = require'lualine'
 
     local colors = {
-      bg       = '#191724',
-      fg       = '#cdd6f4',
-      yellow   = '#f9e2af',
-      cyan     = '#9ccfd8',
-      darkblue = '#081633',
-      green    = '#31748f',
+      bg       = '#171922',
+      fg       = '#E4F0FB',
+      yellow   = '#FFFAC2',
+      cyan     = '#ADD7FF',
+      green    = '#5DE4C7',
       orange   = '#f1be78',
       violet   = '#BC93FA',
-      blue     = '#87AEF0',
-      red      = '#eb6f92',
+      blue     = '#89DDFF',
+      red      = '#D0679D',
     }
 
     local conditions = {
@@ -79,7 +78,7 @@
       function()
         return '█'
       end,
-      color = { fg = colors.red }, -- Sets highlighting of component
+      color = { fg = colors.green }, -- Sets highlighting of component
       padding = { left = 0, right = 1 }, -- We don't need space before this
     }
 
@@ -91,11 +90,11 @@
       color = function()
         -- auto change color according to neovims mode
         local mode_color = {
-          n = colors.red,
-          i = colors.green,
-          v = colors.blue,
-          [''] = colors.blue,
-          V = colors.blue,
+          n = colors.green,
+          i = colors.fg,
+          v = colors.yellow,
+          [''] = colors.yellow,
+          V = colors.yellow,
           c = colors.red,
           no = colors.red,
           s = colors.orange,
@@ -126,7 +125,7 @@
     ins_left {
       'filename',
       cond = conditions.buffer_not_empty,
-      color = { fg = colors.violet , gui = 'bold' },
+      color = { fg = colors.blue, gui = 'bold' },
     }
 
     ins_left { 'location' }
@@ -170,7 +169,7 @@
         return msg
       end,
       icon = ' LSP:',
-      color = { fg = colors.white, gui = 'bold' },
+      color = { fg = colors.fg , gui = 'bold' },
     }
 
     -- Add components to right sections
@@ -178,20 +177,20 @@
       'o:encoding', -- option component same as &encoding in viml
       fmt = string.upper, -- I'm not sure why it's upper case either ;)
       cond = conditions.hide_in_width,
-      color = { fg = colors.green, gui = 'bold' },
+      color = { fg = colors.cyan, gui = 'bold' },
     }
 
     ins_right {
       'fileformat',
       fmt = string.upper,
       icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-      color = { fg = colors.green, gui = 'bold' },
+      color = { fg = colors.cyan, gui = 'bold' },
     }
 
     ins_right {
       'branch',
       icon = '',
-      color = { fg = colors.violet, gui = 'bold' },
+      color = { fg = colors.blue , gui = 'bold' },
     }
 
     ins_right {
@@ -210,7 +209,7 @@
       function()
         return '█'
       end,
-      color = { fg = colors.red },
+      color = { fg = colors.green },
       padding = { left = 1 },
     }
 
