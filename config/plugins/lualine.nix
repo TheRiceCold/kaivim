@@ -4,17 +4,16 @@
     local lualine = require'lualine'
 
     local colors = {
-      bg       = '#313244',
+      bg       = '#191724',
       fg       = '#cdd6f4',
       yellow   = '#f9e2af',
-      cyan     = '#89dceb',
+      cyan     = '#9ccfd8',
       darkblue = '#081633',
-      green    = '#a6e3a1',
-      orange   = '#eba0ac',
-      violet   = '#cba6f7',
-      magenta  = '#c678dd',
+      green    = '#31748f',
+      orange   = '#f1be78',
+      violet   = '#BC93FA',
       blue     = '#87AEF0',
-      red      = '#f38ba8',
+      red      = '#eb6f92',
     }
 
     local conditions = {
@@ -80,7 +79,7 @@
       function()
         return '█'
       end,
-      color = { fg = colors.blue }, -- Sets highlighting of component
+      color = { fg = colors.red }, -- Sets highlighting of component
       padding = { left = 0, right = 1 }, -- We don't need space before this
     }
 
@@ -97,7 +96,7 @@
           v = colors.blue,
           [''] = colors.blue,
           V = colors.blue,
-          c = colors.magenta,
+          c = colors.red,
           no = colors.red,
           s = colors.orange,
           S = colors.orange,
@@ -127,7 +126,7 @@
     ins_left {
       'filename',
       cond = conditions.buffer_not_empty,
-      color = { fg = colors.magenta, gui = 'bold' },
+      color = { fg = colors.violet , gui = 'bold' },
     }
 
     ins_left { 'location' }
@@ -211,7 +210,7 @@
       function()
         return '█'
       end,
-      color = { fg = colors.blue },
+      color = { fg = colors.red },
       padding = { left = 1 },
     }
 
