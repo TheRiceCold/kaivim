@@ -1,5 +1,9 @@
 {
-  poimandres.enable = true;
+  poimandres = {
+    enable = true;
+    darkVariant = "dark";
+    disableBackground = true;
+  };
 # gruvbox.enable = true;
 # kanagawa.enable = true;
   # rose-pine.enable = true;

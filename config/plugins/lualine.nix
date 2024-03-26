@@ -90,12 +90,12 @@
       color = function()
         -- auto change color according to neovims mode
         local mode_color = {
-          n = colors.green,
-          i = colors.fg,
-          v = colors.yellow,
-          [''] = colors.yellow,
-          V = colors.yellow,
-          c = colors.red,
+          n = colors.cyan,
+          i = colors.green,
+          v = colors.red,
+          [''] = colors.red,
+          V = colors.red,
+          c = colors.yellow,
           no = colors.red,
           s = colors.orange,
           S = colors.orange,
@@ -109,7 +109,7 @@
           rm = colors.cyan,
           ['r?'] = colors.cyan,
           ['!'] = colors.red,
-          t = colors.red,
+          t = colors.yellow,
         }
         return { fg = mode_color[vim.fn.mode()] }
       end,
