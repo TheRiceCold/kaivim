@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 let
   icons = import ../icons.nix;
 in {
@@ -19,13 +18,8 @@ in {
         prompt_prefix = "${icons.ui.telescope} ";
         color_devicons = true;
         mappings = [ ];
+        extensions = { };
       };
     };
   };
-  extraPackages = with pkgs; [ ripgrep lazygit ];
-  extraPlugins = [ pkgs.vimPlugins.lazygit-nvim ];
-  extraConfigLua = ''
-    local telescope = require'telescope'
-    telescope.load_extension('lazygit')
-  '';
 }
