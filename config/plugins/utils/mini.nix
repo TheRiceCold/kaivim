@@ -21,6 +21,7 @@ icons: {
         (cl "c" "+Comment")
         (cl "h" "+Harpoon")
         (cl "t" "+Terminal")
+        (cl "b" "+BufferLine")
 
         # Some extra stuff
         (cl "N" "+Nix")

@@ -37,14 +37,22 @@ let
     branches = key: (bind key (telescope "git_branches") "Branches");
   };
 
-  buffer = {
-    next = key: (k key (cmd "bnext") "Next buffer");
-    prev = key: (k key (cmd "bprevious") "Previous buffer");
-
+  buffer = let
+    bl = exec: desc: key: (k key (cmd "BufferLine${exec}") desc);
+  in {
     new = key: (k (lead key) (cmd "enew") "New Buffer");
     write = key: (k (lead key) (cmd "w!") "Write Buffer");
+    close = key: (k (lead key) (cmd "clo") "Close Split");
     delete = key: (k (lead key) (cmd "update! | bdelete") "Delete Buffer");
-    close = key: (k (lead key) (cmd "clo") "Close Buffer Window (Split)");
+
+    pin = bl "TogglePin" "Toggle";
+    pick = bl "Pick" "Pick";
+    pick-close = bl "PickClose" "Pick Close";
+    next = bl "CycleNext" "Next buffer";
+    prev = bl "CyclePrev" "Previous buffer";
+    move-next = bl "MoveNext" "Move Next";
+    move-prev = bl "MovePrev" "Move Previous";
+    close-others = bl "CloseOthers" "Close Others";
   };
 
   find = let
@@ -140,11 +148,19 @@ in {
     (common.toggle-numbers "n")
 
     # INFO: Buffers (leader <key>)
-    (buffer.write  "w")
     (buffer.close "c")
+    (buffer.write  "w")
     (buffer.delete "d")
     (buffer.next "<S-l>")
     (buffer.prev "<S-h>")
+
+    # INFO: BufferLine (leader b<key>)
+    (buffer.pin (lead "bp"))
+    (buffer.pick (lead "bp"))
+    (buffer.pick-close (lead "bc"))
+    (buffer.close-others (lead "bo"))
+    (buffer.move-next (lead "bn"))
+    (buffer.move-prev (lead "bb"))
 
     # INFO: Find (key: leader f<key>)
     (find.grep "g")
@@ -153,7 +169,6 @@ in {
     (find.buffers "b")
     (find.keymaps "k")
     (find.jumplist "j")
-    (find.browse-files "e")
     (find.hidden-files "a")
 
     # INFO: Git (key: leader g<key>)

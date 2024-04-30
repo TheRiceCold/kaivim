@@ -14,9 +14,9 @@
         "markdown_inline"
       ];
     };
+    ts-autotag.enable = true;
+    rainbow-delimiters.enable = true;
     treesitter-context.enable = true;
     treesitter-textobjects.enable = true;
-    rainbow-delimiters.enable = true;
-    ts-autotag.enable = true;
   };
 }
