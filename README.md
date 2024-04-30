@@ -1,7 +1,7 @@
-###### *<div align=right><sub>Last nix update: march 21, 2024</sub></div>*
+###### *<div align=right><sub>Last nix update: april 30, 2024</sub></div>*
 
 <h1 align=center>
-    Kaivim <br />
+  Kaivim <br />
 </h1>
 
 Kai stands for a japanese word (kaizen), a philosophy means to improve continuously and change for the better.

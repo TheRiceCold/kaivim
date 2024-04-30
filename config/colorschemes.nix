@@ -1,8 +1,10 @@
 {
   poimandres = {
     enable = true;
-    darkVariant = "dark";
-    disableBackground = true;
+    settings = {
+      dark_variant = "dark";
+      disableBackground = true;
+    };
   };
 # gruvbox.enable = true;
 # kanagawa.enable = true;

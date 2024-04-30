@@ -4,29 +4,34 @@ let
 in {
   plugins = {
     alpha = import ./alpha.nix;
-    comment-nvim = {
+    comment = {
       enable = true;
-      sticky = true;
-      padding = true;
-      ignore = "^$";
-      toggler = { line = "gcc"; block = "gbc"; };
-      opleader = { line = "gc"; block = "gb"; };
-      mappings = { basic = true; extra = true; };
+      settings = {
+        sticky = true;
+        padding = true;
+        ignore = "^$";
+        toggler = { line = "gcc"; block = "gbc"; };
+        opleader = { line = "gc"; block = "gb"; };
+        mappings = { basic = true; extra = true; };
+      };
     };
+
     emmet.enable = true;
 
     nvim-colorizer.enable = true;
     # nvim-ufo.enable = true; # FIX: this mf folds everything
     nvim-autopairs = {
       enable = true;
-      mapBs = true;
-      checkTs = true;
-      disableInMacro = false;
-      enableAfterQuote = true;
-      enableMoveright = true;
-      disableInVisualblock = false;
-      enableCheckBracketLine = false;
-      disabledFiletypes = [ "TelescopePrompt" "spectre_panel" ];
+      settings = {
+        mapBs = true;
+        checkTs = true;
+        disableInMacro = false;
+        enableAfterQuote = true;
+        enableMoveright = true;
+        disableInVisualblock = false;
+        enableCheckBracketLine = false;
+        disabledFiletypes = [ "TelescopePrompt" "spectre_panel" ];
+      };
     };
 
     # obsidian.enable = true;
@@ -42,9 +47,11 @@ in {
 
     toggleterm = {
       enable = true;
-      direction = "float";
-      openMapping = "<c-\\>";
-      floatOpts = { border = "curved"; };
+      settings = {
+        direction = "float";
+        open_mapping = "[[<c-\>]]";
+        float_opts = { border = "curved"; };
+      };
     };
 
     mini = import ./mini.nix icons;

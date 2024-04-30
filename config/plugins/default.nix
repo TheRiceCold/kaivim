@@ -16,7 +16,9 @@
     noice.enable = true;
     bufferline.enable = true;
     # fidget.enable = true;
-    cmp.enable = true;
+    cmp = {
+      enable = true;
+    };
     # dap = { enable = true; };
   };
 }

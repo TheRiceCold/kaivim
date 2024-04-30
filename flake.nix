@@ -13,6 +13,9 @@
         module = import ./config;
       };
     in {
-      packages.default = nvim;
+      packages = {
+        kaivim = nvim;
+        default = nvim;
+      };
     });
 }
