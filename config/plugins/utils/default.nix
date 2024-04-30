@@ -1,9 +1,11 @@
-{ icons, ... }:
 let
   icons = import ../../icons.nix;
 in {
   plugins = {
     alpha = import ./alpha.nix;
+    mini = import ./mini.nix icons;
+    obsidian = import ./obsidian.nix;
+
     comment = {
       enable = true;
       settings = {
@@ -34,7 +36,6 @@ in {
       };
     };
 
-    # obsidian.enable = true;
     todo-comments = {
       enable = true;
       keywords = {
@@ -53,7 +54,5 @@ in {
         float_opts = { border = "curved"; };
       };
     };
-
-    mini = import ./mini.nix icons;
   };
 }
