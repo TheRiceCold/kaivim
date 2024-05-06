@@ -4,7 +4,7 @@
     workspaces = [
       {
         name = "notes";
-        path = "~/repos/obsidian/notes";
+        path = "~/Vault/notes";
       }
     ];
     new_notes_location = "current_dir";

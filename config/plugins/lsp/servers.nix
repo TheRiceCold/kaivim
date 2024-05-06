@@ -1,4 +1,5 @@
 {
+  efm.enable = true;
   html.enable = true;
   htmx.enable = true;
   cssls.enable = true;
