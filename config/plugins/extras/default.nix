@@ -1,6 +1,5 @@
 { pkgs, ... }:
 let
-  icons = ../../icons.nix;
   build = owner: name: version: rev: hash: pkgs.vimUtils.buildVimPlugin {
     pname = name;
     inherit version;
@@ -18,11 +17,10 @@ in {
   ];
 
   imports = [
-    # (import ./harpoon.nix build)
-    # (import ./navbuddy.nix build pkgs)
-
+    (import ./silicon.nix build pkgs)
     # (import ./heirline build)
-    # (import ./comment-box.nix build)
+    # (import ./harpoon.nix build)
     # (import ./autopairs.nix build)
+    # (import ./comment-box.nix build)
   ];
 }

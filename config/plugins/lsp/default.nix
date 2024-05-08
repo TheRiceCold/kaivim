@@ -1,8 +1,8 @@
 {
   plugins = {
-    fidget.enable = true;
+    # fidget.enable = true;
     lspsaga = import ./lspsaga.nix;
-    none-ls = import ./none-ls.nix;
+    # none-ls = import ./none-ls.nix;
     lsp-format = {
       enable = true;
       lspServersToEnable = [ "nixd" "efm" ];

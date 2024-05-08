@@ -11,6 +11,9 @@
     opts = import ./options.nix;
     colorschemes = import ./colorschemes.nix;
 		colorscheme = "poimandres";
-    extraPackages = with pkgs; [ ripgrep lazygit tectonic ];
+    extraPackages = with pkgs; [ 
+      ripgrep lazygit tectonic 
+      silicon jetbrains-mono noto-fonts-color-emoji  
+    ];
   };
 }
