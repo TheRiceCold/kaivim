@@ -1,5 +1,5 @@
 build: pkgs: let
-  nvim-silicon = build 
+  nvim-silicon = build
     "michaelrommel"
     "nvim-silicon"
     "2024-03-06"
