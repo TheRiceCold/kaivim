@@ -11,7 +11,7 @@
     ./telescope.nix
     ./treesitter.nix
   ];
-  extraPlugins = [ pkgs.vimPlugins.plenary-nvim ];
+  extraPlugins = with pkgs.vimPlugins; [ plenary-nvim dressing-nvim ];
   plugins = {
     noice.enable = true;
     bufferline.enable = true;
