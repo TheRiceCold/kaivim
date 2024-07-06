@@ -4,8 +4,8 @@
     ./utils
     ./extras
     ./languages
+    ./completion
 
-    ./cmp.nix
     ./git.nix
     ./lualine.nix
     ./telescope.nix
@@ -15,6 +15,18 @@
   plugins = {
     noice.enable = true;
     bufferline.enable = true;
-    # dap = { enable = true; };
+    luasnip = {
+      enable = true;
+      extraConfig = {
+        enable_autosnippets = true;
+        store_selection_keys = "<Tab>";
+      };
+      fromVscode = [
+        {
+          lazyLoad = true;
+          paths = "${pkgs.vimPlugins.friendly-snippets}";
+        }
+      ];
+    };
   };
 }
