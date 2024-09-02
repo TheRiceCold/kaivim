@@ -2,6 +2,7 @@
   efm.enable = true;
   html.enable = true;
   htmx.enable = true;
+  java.enable = true;
   cssls.enable = true;
   astro.enable = true;
   gopls.enable = true;

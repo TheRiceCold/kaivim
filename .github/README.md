@@ -1,4 +1,4 @@
-###### *<div align=right><sub>Last nix update: July 06, 2024</sub></div>*
+###### *<div align=right><sub>Last nix update: Sept 02, 2024</sub></div>*
 
 <h1 align=center>
   Kaivim <br />

@@ -7,6 +7,7 @@
     ./completion
 
     ./git.nix
+    ./lazy.nix
     ./lualine.nix
     ./telescope.nix
     ./treesitter.nix
@@ -17,7 +18,7 @@
     bufferline.enable = true;
     luasnip = {
       enable = true;
-      extraConfig = {
+      settings = {
         enable_autosnippets = true;
         store_selection_keys = "<Tab>";
       };

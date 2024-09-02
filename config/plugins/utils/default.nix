@@ -38,7 +38,7 @@ in {
 
     todo-comments = {
       enable = true;
-      keywords = {
+      settings.keywords = {
         TODO = { icon = ""; color = "info"; };
         DOCS = { icon = ""; color = "info"; };
         NOTE = { icon = ""; color = "hint"; };

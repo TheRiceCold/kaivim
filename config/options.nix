@@ -4,7 +4,7 @@
   title = true;
   tabstop = 2;
   scrolloff = 8;
-  number = false;
+  number = true;
   shiftwidth = 2;
   laststatus = 3;
   numberwidth = 4;
