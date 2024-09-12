@@ -14,10 +14,11 @@ icons: {
         c = keys: desc: { mode = ""; inherit keys desc; };
         cl = key: desc: (c "<leader>${key}" desc);
       in [
-        # NOTE: to see keymaps go to `config/keymaps.nix`
+        # to see keymaps go to `config/keymaps.nix`
         (cl "g" "+Git")
         (cl "l" "+Lsp")
         (cl "f" "+Find")
+        (cl "r" "+Rest")
         (cl "c" "+Comment")
         (cl "h" "+Harpoon")
         (cl "t" "+Terminal")
@@ -27,7 +28,6 @@ icons: {
         (cl "N" "+Nix")
         (cl "D" "+Docs")
         (cl "L" "+LaTeX")
-        (cl "S" "+Silicon")
         (cl "M" "+Markdown")
 
         (c "gD" "references")

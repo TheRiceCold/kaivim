@@ -36,6 +36,8 @@ in {
       };
     };
 
+    rest.enable = true;
+
     todo-comments = {
       enable = true;
       settings.keywords = {

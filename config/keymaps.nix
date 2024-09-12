@@ -21,12 +21,9 @@ let
 
   common = {
     zen-mode  = key: (k (lead key) (cmd "ZenMode") "Zen mode");
+    silicon = key: (k (lead key) (cmd "Silicon") "Silicon Capture");
     explorer = key: (k (lead key) (lua "MiniFiles.open()") "Explorer");
     toggle-numbers = key: (k (lead key) (cmd "set nu!") "Toggle line numbers");
-  };
-
-  remap = {
-    redo = key: (k key "<C-r>" "Redo");
   };
 
   git = let
@@ -100,11 +97,11 @@ let
     action = key: (bind key "Lspsaga code_action" "Code Action");
   };
 
-  md = let
-    bind = key: act: (k (lead "M${key}") (cmd act));
+  rest = let
+    bind = key: act: (k (lead "r${key}") (cmd act));
   in {
-    view = key: (bind key "MarkdownPreviewToggle" "Browser Preview");
-    render = key: (bind key "RenderMarkdown toggle" "Toggle Render");
+    run = key: (bind key "Rest run" "Run");
+    last = key: (bind key "Rest last" "Run Last");
   };
 
   latex = let
@@ -114,6 +111,13 @@ let
     errors = key: (bind key "VimtexErrors" "Errors");
     reload = key: (bind key "VimtexReload" "Reload");
     compile = key: (bind key "VimtexCompile" "Compile");
+  };
+
+  md = let
+    bind = key: act: (k (lead "M${key}") (cmd act));
+  in {
+    view = key: (bind key "MarkdownPreviewToggle" "Browser Preview");
+    render = key: (bind key "RenderMarkdown toggle" "Toggle Render");
   };
 
   nix = let
@@ -144,19 +148,18 @@ let
   };
 in {
   keymaps = [
-    # INFO: Common (leader <key>)
+    # Leader <key>
+    (common.silicon "s")
     (common.explorer "e")
     (common.zen-mode "z")
     (common.toggle-numbers "n")
-
-    # INFO: Buffers (leader <key>)
-    (buffer.close "c")
+    (buffer.close "x")
     (buffer.write  "w")
     (buffer.delete "d")
     (buffer.next "<S-l>")
     (buffer.prev "<S-h>")
 
-    # INFO: BufferLine (leader b<key>)
+    # Leader b
     (buffer.pin (lead "bp"))
     (buffer.pick (lead "bp"))
     (buffer.pick-close (lead "bc"))
@@ -164,7 +167,7 @@ in {
     (buffer.move-next (lead "bn"))
     (buffer.move-prev (lead "bb"))
 
-    # INFO: Find (key: leader f<key>)
+    # Leader f
     (find.grep "g")
     (find.files "f")
     (find.todo "t")
@@ -174,16 +177,16 @@ in {
     (find.colorscheme "c")
     (find.hidden-files "a")
 
-    # INFO: Git (key: leader g<key>)
+    # Leader g
     (git.lazy "g")
     (git.status  "s")
     (git.branches "b")
 
-    # INFO: Terminal (key: leader t<key>)
+    # Leader t
     (term.empty "t")
     (term.lazygit "g")
 
-    # INFO: LSP Commands (key: leader l<key>)
+    # Leader l
     (lsp.outline "o")
     (lsp.restart "R")
     (lsp.action "a")
@@ -192,22 +195,24 @@ in {
     (lsp.stop "k")
     (lsp.term "t")
 
-    # INFO: LaTeX Commands (key: leader L<key>)
+    # Leader r
+    (rest.run "r")
+    (rest.last "l")
+
+    # Leader L
     (latex.view "v")
     (latex.errors "e")
     (latex.reload "r")
     (latex.compile "c")
 
-    # INFO: Markdown Commands (key: leader M<key>)
+    # Leader M
     (md.view "v")
     (md.render "r")
 
-    # INFO: Nix Commands (key: leader N<key>)
+    # Leader N
     (nix.update "u")
     (nix.develop "d")
     (nix.packages "p")
     (nix.profile-install "i")
-
-    (remap.redo "<S-u>")
   ];
 }
