@@ -1,13 +1,13 @@
 { pkgs, ... }:
 {
   imports = [
+    ./lsp
     ./utils
     ./extras
     ./languages
     ./completion
 
     ./git.nix
-    ./lazy.nix
     ./lualine.nix
     ./telescope.nix
     ./treesitter.nix
@@ -16,6 +16,7 @@
   plugins = {
     noice.enable = true;
     bufferline.enable = true;
+
     luasnip = {
       enable = true;
       settings = {
