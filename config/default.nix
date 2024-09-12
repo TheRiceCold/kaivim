@@ -9,11 +9,13 @@
   config = {
     globals.mapleader = " ";
     opts = import ./options.nix;
+
+    colorscheme = "poimandres";
     colorschemes = import ./colorschemes.nix;
-		colorscheme = "poimandres";
-    extraPackages = with pkgs; [ 
-      ripgrep lazygit tectonic 
-      silicon jetbrains-mono noto-fonts-color-emoji  
+
+    extraPackages = with pkgs; [
+      ripgrep lazygit tectonic
+      silicon jetbrains-mono noto-fonts-color-emoji
     ];
   };
 }

@@ -1,4 +1,6 @@
 {
+  oxocarbon.enable = true;
+
   poimandres = {
     enable = true;
     settings = {
@@ -6,10 +8,19 @@
       disableBackground = true;
     };
   };
-# gruvbox.enable = true;
-# kanagawa.enable = true;
+
+  # cyberdream = {
+  #   enable = true;
+  #   settings = { transparent = true; };
+  # };
+
+  # vscode = {
+  #   enable = true;
+  #   settings = { transparent = true; };
+  # };
+  # kanagawa.enable = true;
   # rose-pine.enable = true;
-  # oxocarbon.enable = true;
+
   # catppuccin = {
   #   enable = true;
   #   flavour = "mocha"; # latte, mocha, frappe, macchiato

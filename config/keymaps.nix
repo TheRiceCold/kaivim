@@ -64,6 +64,7 @@ let
     keymaps = key: (fd key "keymaps" "Keymaps");
     grep = key: (fd key "live_grep" "Live Grep");
     jumplist = key: (fd key "jumplist" "Jumplist");
+    colorscheme = key: (fd key "colorscheme" "Colorscheme");
     todo = key: (bind key (cmd "TodoTelescope theme=ivy") "Todo");
     hidden-files = key: (fd key "fd follow=true hidden=true" "Files (including hidden)");
   };
@@ -90,7 +91,7 @@ let
   lsp = let
     bind = key: act: (k (lead "l${key}") (cmd act));
   in {
-    start = key: (bind key  "LspStart" "Start");
+    start = key: (bind key "LspStart" "Start");
     stop = key: (bind key "LspStop" "Stop/Kill");
     restart = key: (bind key "LspRestart" "Restart");
     rename = key: (bind key "Lspsaga rename" "Rename");
@@ -102,7 +103,8 @@ let
   md = let
     bind = key: act: (k (lead "M${key}") (cmd act));
   in {
-    view = key: (bind key "MarkdownPreviewToggle" "Toggle View");
+    view = key: (bind key "MarkdownPreviewToggle" "Browser Preview");
+    render = key: (bind key "RenderMarkdown toggle" "Toggle Render");
   };
 
   latex = let
@@ -169,6 +171,7 @@ in {
     (find.buffers "b")
     (find.keymaps "k")
     (find.jumplist "j")
+    (find.colorscheme "c")
     (find.hidden-files "a")
 
     # INFO: Git (key: leader g<key>)
@@ -197,6 +200,7 @@ in {
 
     # INFO: Markdown Commands (key: leader M<key>)
     (md.view "v")
+    (md.render "r")
 
     # INFO: Nix Commands (key: leader N<key>)
     (nix.update "u")
