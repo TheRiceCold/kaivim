@@ -18,9 +18,9 @@ in {
 
   imports = [
     (import ./silicon.nix build pkgs)
+    (import ./render-markdown.nix build pkgs)
     # (import ./heirline build)
     # (import ./harpoon.nix build)
     # (import ./autopairs.nix build)
-    # (import ./comment-box.nix build)
   ];
 }
