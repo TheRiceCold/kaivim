@@ -17,10 +17,8 @@ in {
   ];
 
   imports = [
+    (import ./block.nix build pkgs)
     (import ./silicon.nix build pkgs)
-    (import ./render-markdown.nix build pkgs)
-    # (import ./heirline build)
-    # (import ./harpoon.nix build)
-    # (import ./autopairs.nix build)
+    (import ./telescope-emoji.nix build pkgs)
   ];
 }

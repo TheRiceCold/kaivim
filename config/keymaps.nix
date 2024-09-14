@@ -13,15 +13,19 @@ let
   telescope = arg: (cmd "Telescope ${arg} theme=ivy");
   toggleterm = cmd: insert-mode: lua (lib.strings.concatStrings [
     "require('toggleterm.terminal').Terminal:new({"
-    "hidden = true,"
     ''${if cmd == "" then "" else "cmd='${cmd}',"}''
     ''${if insert-mode then "on_open = function(_) vim.cmd 'startinsert!' end," else ""}''
     "}):toggle()"
   ]);
 
+  remap = {
+    redo = key: (k key "<C-r>" "Redo");
+  };
+
   common = {
     zen-mode  = key: (k (lead key) (cmd "ZenMode") "Zen mode");
     silicon = key: (k (lead key) (cmd "Silicon") "Silicon Capture");
+    toggle-block =  key: (k (lead key) (cmd "Block") "Toggle Block");
     explorer = key: (k (lead key) (lua "MiniFiles.open()") "Explorer");
     toggle-numbers = key: (k (lead key) (cmd "set nu!") "Toggle line numbers");
   };
@@ -42,8 +46,8 @@ let
     close = key: (k (lead key) (cmd "clo") "Close Split");
     delete = key: (k (lead key) (cmd "update! | bdelete") "Delete Buffer");
 
-    pin = bl "TogglePin" "Toggle";
     pick = bl "Pick" "Pick";
+    pin = bl "TogglePin" "Toggle Pin";
     pick-close = bl "PickClose" "Pick Close";
     next = bl "CycleNext" "Next buffer";
     prev = bl "CyclePrev" "Previous buffer";
@@ -57,6 +61,7 @@ let
     fd = key: act: (bind key (telescope act));
   in {
     files = key: (fd key "fd" "Files");
+    emoji = key: (fd key "emoji" "Emoji");
     buffers = key: (fd key "buffers" "Buffers");
     keymaps = key: (fd key "keymaps" "Keymaps");
     grep = key: (fd key "live_grep" "Live Grep");
@@ -152,6 +157,7 @@ in {
     (common.silicon "s")
     (common.explorer "e")
     (common.zen-mode "z")
+    (common.toggle-block "B")
     (common.toggle-numbers "n")
     (buffer.close "x")
     (buffer.write  "w")
@@ -160,7 +166,7 @@ in {
     (buffer.prev "<S-h>")
 
     # Leader b
-    (buffer.pin (lead "bp"))
+    (buffer.pin (lead "bP"))
     (buffer.pick (lead "bp"))
     (buffer.pick-close (lead "bc"))
     (buffer.close-others (lead "bo"))
@@ -169,8 +175,9 @@ in {
 
     # Leader f
     (find.grep "g")
-    (find.files "f")
     (find.todo "t")
+    (find.emoji "e")
+    (find.files "f")
     (find.buffers "b")
     (find.keymaps "k")
     (find.jumplist "j")
@@ -214,5 +221,7 @@ in {
     (nix.develop "d")
     (nix.packages "p")
     (nix.profile-install "i")
+
+    (remap.redo "<S-u>")
   ];
 }
