@@ -73,6 +73,7 @@ let
     keymaps = key: (fd key "keymaps" "Keymaps");
     grep = key: (fd key "live_grep" "Live Grep");
     jumplist = key: (fd key "jumplist" "Jumplist");
+    replace = key: (bind key (cmd "GrugFar") "Replace");
     colorscheme = key: (fd key "colorscheme" "Colorscheme");
     todo = key: (bind key (cmd "TodoTelescope theme=ivy") "Todo");
     hidden-files = key: (fd key "fd follow=true hidden=true" "Files (including hidden)");
@@ -184,6 +185,7 @@ in {
     (find.todo "t")
     (find.emoji "e")
     (find.files "f")
+    (find.replace "r")
     (find.buffers "b")
     (find.keymaps "k")
     (find.jumplist "j")
