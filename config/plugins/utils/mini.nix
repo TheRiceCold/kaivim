@@ -21,6 +21,7 @@ icons: {
         (cl "r" "+Rest")
         (cl "c" "+Comment")
         (cl "h" "+Harpoon")
+        (cl "s" "+Silicon")
         (cl "t" "+Terminal")
         (cl "b" "+BufferLine")
 

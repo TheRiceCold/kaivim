@@ -12,7 +12,7 @@ let
   browser = url: "firefox '${url}' open=0";
   telescope = arg: (cmd "Telescope ${arg} theme=ivy");
   toggleterm = cmd: insert-mode: lua (lib.strings.concatStrings [
-    "require('toggleterm.terminal').Terminal:new({"
+    "require'toggleterm.terminal'.Terminal:new({"
     ''${if cmd == "" then "" else "cmd='${cmd}',"}''
     ''${if insert-mode then "on_open = function(_) vim.cmd 'startinsert!' end," else ""}''
     "}):toggle()"
@@ -22,9 +22,16 @@ let
     redo = key: (k key "<C-r>" "Redo");
   };
 
+  silicon = let
+    bind = key: exec: (k (lead "s${key}") (lua "require'nvim-silicon'.${exec}()"));
+  in
+  {
+    clipboard = key: (bind key "clip" "Copy to clipboard");
+    save-file = key: (bind key "file" "Save as file");
+  };
+
   common = {
     zen-mode  = key: (k (lead key) (cmd "ZenMode") "Zen mode");
-    silicon = key: (k (lead key) (cmd "Silicon") "Silicon Capture");
     toggle-block =  key: (k (lead key) (cmd "Block") "Toggle Block");
     explorer = key: (k (lead key) (lua "MiniFiles.open()") "Explorer");
     toggle-numbers = key: (k (lead key) (cmd "set nu!") "Toggle line numbers");
@@ -154,7 +161,6 @@ let
 in {
   keymaps = [
     # Leader <key>
-    (common.silicon "s")
     (common.explorer "e")
     (common.zen-mode "z")
     (common.toggle-block "B")
@@ -205,6 +211,10 @@ in {
     # Leader r
     (rest.run "r")
     (rest.last "l")
+
+    # Leader s
+    (silicon.clipboard "c")
+    (silicon.save-file "f")
 
     # Leader L
     (latex.view "v")

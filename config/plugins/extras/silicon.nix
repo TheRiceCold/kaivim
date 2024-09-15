@@ -2,9 +2,9 @@ build: pkgs: let
   nvim-silicon = build
     "michaelrommel"
     "nvim-silicon"
-    "2024-07-30"
-    "feb882f04c992b797daa118101a239fb3bedfc04"
-    "Tb20MKihigg2xiy1R0e+7T0ltJHxbp5i8z6+1QQmvg0=";
+    "2024-08-31"
+    "9fe6001dc8cad4d9c53bcfc8649e3dc76ffa169c"
+    "1BeJSpcmZeuIZXrbrxMKvaQBZn2TtsjrFXk26w2In+E=";
 in {
   extraPlugins = [ nvim-silicon ];
   extraConfigLua = ''
