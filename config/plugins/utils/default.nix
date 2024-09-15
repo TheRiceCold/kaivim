@@ -3,10 +3,7 @@ let
 in {
   plugins = {
     mini = import ./mini icons;
-    # obsidian = import ./obsidian.nix;
     # conform-nvim = import ./conform.nix;
-
-    inc-rename.enable = true;
 
     comment = {
       enable = true;
@@ -21,8 +18,6 @@ in {
     };
 
     emmet.enable = true;
-    firenvim.enable = true;
-
     nvim-colorizer.enable = true;
 
     nvim-autopairs = {
@@ -40,7 +35,6 @@ in {
     };
 
     rest.enable = true;
-    # startify.enable = true;
 
     todo-comments = {
       enable = true;

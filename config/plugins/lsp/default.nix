@@ -1,6 +1,5 @@
 {
   plugins = {
-    # fidget.enable = true;
     lspsaga = import ./lspsaga.nix;
     # none-ls = import ./none-ls.nix;
     lsp-format = {

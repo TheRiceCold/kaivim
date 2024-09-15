@@ -9,15 +9,11 @@
     };
   };
 
-  # cyberdream = {
-  #   enable = true;
-  #   settings = { transparent = true; };
-  # };
+  cyberdream = {
+    enable = true;
+    settings = { transparent = true; };
+  };
 
-  # vscode = {
-  #   enable = true;
-  #   settings = { transparent = true; };
-  # };
   # kanagawa.enable = true;
   # rose-pine.enable = true;
 
