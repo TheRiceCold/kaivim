@@ -1,4 +1,4 @@
-build: pkgs: let
+build: let
   block = build
     "HampusHauffman"
     "block.nvim"

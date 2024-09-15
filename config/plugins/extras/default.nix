@@ -10,15 +10,13 @@ let
     };
   };
 in {
-  extraPlugins = with pkgs.vimPlugins; [
-    dial-nvim
-    zen-mode-nvim
-    vim-visual-multi
-  ];
+  extraPlugins = with pkgs.vimPlugins; [ zen-mode-nvim vim-visual-multi ];
 
   imports = [
-    (import ./block.nix build pkgs)
-    (import ./silicon.nix build pkgs)
-    (import ./telescope-emoji.nix build pkgs)
+    (import ./block.nix build)
+    (import ./silicon.nix build)
+    (import ./scrollEOF.nix build)
+    (import ./render-markdown.nix build)
+    (import ./telescope-emoji.nix build)
   ];
 }

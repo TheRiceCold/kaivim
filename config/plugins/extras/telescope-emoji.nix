@@ -1,4 +1,4 @@
-build: pkgs: let
+build: let
   telescope-emoji = build
     "xiyaowong"
     "telescope-emoji.nvim"
@@ -7,5 +7,6 @@ build: pkgs: let
     "8V3MTporANLtZkH0RuLviWlgMmR6fay0WmZ3ZOQzpKI=";
 in {
   extraPlugins = [ telescope-emoji ];
+
   extraConfigLua = "require('telescope').load_extension('emoji')";
 }

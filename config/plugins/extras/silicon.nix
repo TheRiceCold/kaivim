@@ -1,4 +1,4 @@
-build: pkgs: let
+build: let
   nvim-silicon = build
     "michaelrommel"
     "nvim-silicon"
@@ -7,6 +7,7 @@ build: pkgs: let
     "1BeJSpcmZeuIZXrbrxMKvaQBZn2TtsjrFXk26w2In+E=";
 in {
   extraPlugins = [ nvim-silicon ];
+
   extraConfigLua = ''
     require'silicon'.setup {
       theme = 'Dracula',
