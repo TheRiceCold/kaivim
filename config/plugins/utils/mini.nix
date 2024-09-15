@@ -46,11 +46,22 @@ icons: {
     files = {
       content = { };
       mappings = { };
-      windows.preview = true;
+      windows = {
+        preview = true;
+        width_focus = 40;
+        width_nofocus = 40;
+      };
     };
 
-    indentscope.symbol = icons.ui.line.left;
-    jump2d = { view.dim = true; mappings.start_jumping = "f"; };
+    indentscope = {
+      symbol = icons.ui.line.left;
+      options = { try_as_border = true; };
+    };
+
+    jump2d = {
+      view.dim = true;
+      mappings.start_jumping = "f";
+    };
 
     move = { };
 

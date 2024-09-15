@@ -33,8 +33,8 @@ let
   common = {
     zen-mode  = key: (k (lead key) (cmd "ZenMode") "Zen mode");
     toggle-block =  key: (k (lead key) (cmd "Block") "Toggle Block");
-    explorer = key: (k (lead key) (lua "MiniFiles.open()") "Explorer");
     toggle-numbers = key: (k (lead key) (cmd "set nu!") "Toggle line numbers");
+    explorer = key: (k (lead key) (lua "MiniFiles.open(vim.bo.buftype ~= 'nofile' and vim.api.nvim_buf_get_name(0) or nil)") "Explorer");
   };
 
   git = let
