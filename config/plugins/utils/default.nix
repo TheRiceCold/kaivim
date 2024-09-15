@@ -2,26 +2,29 @@ let
   icons = import ../../icons.nix;
 in {
   plugins = {
-    alpha = import ./alpha.nix;
-    mini = import ./mini.nix icons;
-    obsidian = import ./obsidian.nix;
+    mini = import ./mini icons;
+    # obsidian = import ./obsidian.nix;
+    # conform-nvim = import ./conform.nix;
+
+    inc-rename.enable = true;
 
     comment = {
       enable = true;
       settings = {
+        ignore = "^$";
         sticky = true;
         padding = true;
-        ignore = "^$";
-        toggler = { line = "gcc"; block = "gbc"; };
         opleader = { line = "gc"; block = "gb"; };
+        toggler = { line = "gcc"; block = "gbc"; };
         mappings = { basic = true; extra = true; };
       };
     };
 
     emmet.enable = true;
+    firenvim.enable = true;
 
     nvim-colorizer.enable = true;
-    # nvim-ufo.enable = true; # FIX: this mf folds everything
+
     nvim-autopairs = {
       enable = true;
       settings = {
@@ -37,6 +40,7 @@ in {
     };
 
     rest.enable = true;
+    # startify.enable = true;
 
     todo-comments = {
       enable = true;
