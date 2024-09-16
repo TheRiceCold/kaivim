@@ -4,7 +4,7 @@
     local lualine = require'lualine'
 
     local colors = {
-      bg       = '#171922',
+      bg       = '#28344a',
       fg       = '#E4F0FB',
       yellow   = '#FFFAC2',
       cyan     = '#ADD7FF',
@@ -117,7 +117,6 @@
     }
 
     ins_left {
-      -- filesize component
       'filesize',
       cond = conditions.buffer_not_empty,
     }
@@ -143,8 +142,6 @@
       },
     }
 
-    -- Insert mid section. You can make any number of sections in neovim :)
-    -- for lualine it's any number greater then 2
     ins_left {
       function()
         return '%='
@@ -152,7 +149,6 @@
     }
 
     ins_left {
-      -- Lsp server name .
       function()
         local msg = 'No Active Lsp'
         local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
@@ -172,7 +168,6 @@
       color = { fg = colors.fg , gui = 'bold' },
     }
 
-    -- Add components to right sections
     ins_right {
       'o:encoding', -- option component same as &encoding in viml
       fmt = string.upper, -- I'm not sure why it's upper case either ;)
@@ -195,7 +190,6 @@
 
     ins_right {
       'diff',
-      -- Is it me or the symbol for modified us really weird
       symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
       diff_color = {
         added = { fg = colors.green },
@@ -213,7 +207,6 @@
       padding = { left = 1 },
     }
 
-    -- Now don't forget to initialize lualine
     lualine.setup(config)
   '';
 }

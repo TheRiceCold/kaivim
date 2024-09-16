@@ -1,10 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./plugins
-    ./keymaps
-    ./neovide.nix
-  ];
+  imports = [ ./plugins ./keymaps ./neovide.nix ];
 
   config = {
     globals.mapleader = " ";
@@ -14,8 +10,12 @@
     colorschemes = import ./colorschemes.nix;
 
     extraPackages = with pkgs; [
-      ripgrep lazygit tectonic
-      silicon jetbrains-mono noto-fonts-color-emoji
+      silicon
+      ripgrep
+      lazygit
+      tectonic
+      jetbrains-mono
+      noto-fonts-color-emoji
     ];
   };
 }
