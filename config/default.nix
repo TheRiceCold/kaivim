@@ -2,7 +2,7 @@
 {
   imports = [
     ./plugins
-    ./keymaps.nix
+    ./keymaps
     ./neovide.nix
   ];
 
