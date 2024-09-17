@@ -13,8 +13,7 @@ in {
   imports = [
     ./ui
     ./lsp
-    ./languages
-    ./completion
+    ./lang
     ./treesitter
     (import ./utils build)
   ];
