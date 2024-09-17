@@ -6,7 +6,7 @@
     globals.mapleader = " ";
     opts = import ./options.nix;
 
-    colorscheme = "poimandres";
+    colorscheme = "cyberdream";
     colorschemes = import ./colorschemes.nix;
 
     extraPackages = with pkgs; [

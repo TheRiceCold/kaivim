@@ -11,26 +11,34 @@
 
   cyberdream = {
     enable = true;
-    settings = { transparent = true; };
+    settings = {
+      transparent = true;
+      hide_fillchars = true;
+      italic_comments = true;
+      terminal_colors = false;
+      theme = { };
+    };
   };
 
-  # kanagawa.enable = true;
-  # rose-pine.enable = true;
-
-  # catppuccin = {
-  #   enable = true;
-  #   flavour = "mocha"; # latte, mocha, frappe, macchiato
-  #   background = { dark = "mocha"; };
-  #   dimInactive.enabled = true;
-  #   integrations = {
-  #     cmp = true;
-  #     noice = true;
-  #     gitsigns = true;
-  #     treesitter = true;
-  #     treesitter_context = true;
-  #     telescope.enabled = true;
-  #     mini.enabled = true;
-  #     native_lsp = { enabled = true; };
-  #   };
-  # };
+  catppuccin = {
+    enable = true;
+    settings = {
+      flavour = "mocha"; # latte, mocha, frappe, macchiato
+      background = { dark = "mocha"; };
+      dimInactive.enabled = false;
+      integrations = {
+        cmp = true;
+        noice = true;
+        notify = true;
+        gitsigns = true;
+        grug_far = true;
+        markdown = true;
+        telescope = true;
+        treesitter = true;
+        treesitter_context = true;
+        mini.enabled = true;
+        native_lsp = { enabled = true; };
+      };
+    };
+  };
 }
