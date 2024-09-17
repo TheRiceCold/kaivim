@@ -4,7 +4,6 @@
     ./ui
     ./lsp
     ./utils
-    ./extras
     ./languages
     ./completion
     ./treesitter

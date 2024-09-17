@@ -1,23 +1,5 @@
-{ pkgs, ... }:
-let
-  build = owner: name: version: rev: hash: pkgs.vimUtils.buildVimPlugin {
-    pname = name;
-    inherit version;
-    src = pkgs.fetchFromGitHub {
-      repo = name;
-      inherit owner rev;
-      hash = "sha256-${hash}";
-    };
-  };
-in {
-  extraPlugins = with pkgs.vimPlugins; [ zen-mode-nvim vim-visual-multi ];
-
+build: {
   imports = [
-    (import ./block.nix build)
     (import ./silicon.nix build)
-    (import ./grug-far.nix build)
-    (import ./scrollEOF.nix build)
-    (import ./render-markdown.nix build)
-    (import ./telescope-emoji.nix build)
   ];
 }
