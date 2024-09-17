@@ -1,27 +1,19 @@
-let
-  icons = import ../../icons.nix;
-in {
-  imports = [ ./git.nix ];
+build: {
+  imports = [
+    ./git.nix
+    (import ./telescope build)
+  ];
 
   plugins = {
-    mini = import ./mini icons;
+    mini = import ./mini;
     # conform-nvim = import ./conform.nix;
-    nvim-autopairs = import ./autopairs.nix;
-    telescope = import ./telescope.nix icons;
+    # nvim-autopairs = import ./autopairs.nix;
 
     rest.enable = true;
-    emmet.enable = true;
-    fzf-lua.enable = true;
-    bufferline.enable = true;
-    nvim-colorizer.enable = true;
-
-    todo-comments = {
+    bufferline = {
       enable = true;
-      settings.keywords = {
-        TODO = { icon = ""; color = "info"; };
-        DOCS = { icon = ""; color = "info"; };
-        NOTE = { icon = ""; color = "hint"; };
-        INFO = { icon = ""; color = "hint"; };
+      settings.options = {
+        diagnostics = "nvim_lsp";
       };
     };
   };

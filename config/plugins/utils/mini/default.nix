@@ -1,5 +1,5 @@
 # DOCS: https://github.com/echasnovski/mini.nvim/blob/main/readmes
-icons: {
+{
   enable = true;
   modules = {
     align = { };
@@ -22,13 +22,27 @@ icons: {
     };
 
     indentscope = {
-      symbol = icons.ui.line.left;
+      symbol = "▏";
       options = { try_as_border = true; };
     };
 
     jump2d.mappings.start_jumping = "f";
 
     move = { };
+    pairs = {
+      opts = {
+        modes = {
+          insert = true;
+          command = true;
+          terminal = false;
+        };
+        markdown = true;
+        skip_ts = [ "string" ];
+        skip_unbalanced = true;
+        # skip autopair when next character is one of these
+        skip_next = ''[=[[%w%%%'%[%"%.%`%$]]=]'';
+      };
+    };
     splitjoin = { };
     trailspace = { };
   };

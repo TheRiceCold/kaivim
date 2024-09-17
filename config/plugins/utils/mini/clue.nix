@@ -22,6 +22,6 @@ in {
   triggers = let
     t = keys: { mode = ""; inherit keys; };
   in [
-    (t "<leader>") (t "g") (t "z")
+    (t "<leader>") (t "g") (t "\\")
   ];
 }
