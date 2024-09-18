@@ -1,15 +1,15 @@
 { pkgs, ... }:
 {
-  imports = [ ./plugins ./keymaps ./neovide.nix ];
+  imports = [
+    ./keymaps
+    ./plugins
+    ./neovide.nix
+  ];
 
   config = {
-    globals.mapleader = " ";
     opts = import ./options.nix;
-
-    colorscheme = "cyberdream";
-    colorschemes = import ./colorschemes.nix;
-
     extraPackages = with pkgs; [
+      delta
       silicon
       ripgrep
       lazygit

@@ -2,12 +2,13 @@ build: {
   imports = [
     ./git.nix
     (import ./telescope build)
+    (import ./silicon.nix build)
   ];
 
   plugins = {
-    mini = import ./mini;
+    mini = import ./mini.nix;
     # conform-nvim = import ./conform.nix;
-    # nvim-autopairs = import ./autopairs.nix;
+    nvim-autopairs = import ./autopairs.nix;
 
     rest.enable = true;
     bufferline = {
