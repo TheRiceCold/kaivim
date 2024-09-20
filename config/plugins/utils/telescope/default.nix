@@ -1,6 +1,9 @@
 build:
 {
-  imports = [ (import ./emoji.nix build) ];
+  imports = [
+    (import ./emoji.nix build)
+    (import ./glyph.nix build)
+  ];
 
   plugins.telescope = {
     enable = true;
