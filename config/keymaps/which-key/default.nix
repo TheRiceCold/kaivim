@@ -19,6 +19,7 @@
 
   extraConfigLua = /* lua */ ''
     local wk = require'which-key'
+    local files = require'mini.files'
 
     function set_cmd(key, action, desc, hidden)
       return {
@@ -31,8 +32,9 @@
 
     wk.add({
       set_cmd('e', function()
-        require'mini.files'.open(vim.bo.buftype ~= 'nofile' and vim.api.nvim_buf_get_name(0) or nil)
+        files.open(vim.bo.buftype ~= 'nofile' and vim.api.nvim_buf_get_name(0) or nil)
       end, 'Explorer'),
+      set_cmd('E', files.open, 'Explorer (Root)'),
       set_cmd('w', 'w!', 'Write buffer'),
       set_cmd('d', 'bdelete', 'Delete buffer'),
       set_cmd('t', 'terminal', 'New terminal'),

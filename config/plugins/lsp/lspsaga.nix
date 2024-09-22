@@ -1,42 +1,42 @@
 {
   enable = true;
   beacon.enable = true;
-  ui = {
-    border = "rounded";
-    codeAction = "💡";
+  ui.border = "rounded";
+  implement.enable = true;
+  lightbulb.enable = false;
+  symbolInWinbar.enable = true; # Breadcrumbs
+  codeAction.extendGitSigns = true;
+
+  scrollPreview = {
+    scrollUp = "<PageUp>";
+    scrollDown = "<PageDown>";
   };
+
   hover = {
-    openCmd = "!floorp"; # Choose your browser
     openLink = "gx";
+    openCmd = "!firefox";
   };
+
   diagnostic = {
     borderFollow = true;
     diagnosticOnlyCurrent = false;
     showCodeAction = true;
   };
-  symbolInWinbar.enable = true; # Breadcrumbs
+
   rename = {
     autoSave = false;
-    keys = {
-      select = "x";
-      exec = "<CR>";
-      quit = "<Esc>";
-    };
+    keys = { exec = "<cr>"; quit = "<esc>"; };
   };
+
   outline = {
-    layout = "normal"; # normal or float
+    layout = "float";
     autoClose = true;
     autoPreview = true;
     closeAfterJump = true;
-    winPosition = "right"; # left or right
     keys = {
       jump = "e";
       quit = "q";
       toggleOrJump = "o";
     };
-  };
-  scrollPreview = {
-    scrollUp = "<C-b>";
-    scrollDown = "<C-f>";
   };
 }

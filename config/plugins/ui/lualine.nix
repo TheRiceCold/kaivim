@@ -4,15 +4,18 @@
     local lualine = require'lualine'
 
     local colors = {
-      bg     = '#28344a',
-      fg     = '#E4F0FB',
-      yellow = '#FFFAC2',
-      cyan   = '#ADD7FF',
-      green  = '#5DE4C7',
-      orange = '#f1be78',
-      violet = '#BC93FA',
-      blue   = '#89DDFF',
-      red    = '#D0679D',
+      bg      = "",
+      fg      = '#ffffff',
+      yellow  = '#faff5e',
+      cyan    = '#5ef1ff',
+      green   = '#5eff6c',
+      orange  = '#ffbd5e',
+      violet  = '#bd5eff',
+      blue    = '#5ea1ff',
+      red     = '#ff6e5e',
+      magenta = '#ff5ef1',
+      grey    = '#7b8496',
+      pink    = '#ff5ea0'
     }
 
     local conditions = {
@@ -75,31 +78,26 @@
     end
 
     ins_left {
-      function()
-        return '█'
-      end,
-      color = { fg = colors.green }, -- Sets highlighting of component
+      function() return '█' end,
+      color = { fg = colors.cyan }, -- Sets highlighting of component
       padding = { left = 0, right = 1 }, -- We don't need space before this
     }
 
     ins_left {
       -- mode component
-      function()
-        return ''
-      end,
+      function() return '' end,
       color = function()
         -- auto change color according to neovims mode
         local mode_color = {
-          n = colors.cyan,
+          n = colors.blue,
           i = colors.green,
-          v = colors.red,
-          [''] = colors.red,
-          V = colors.red,
+
+          v = colors.magenta,
+          [''] = colors.magenta,
+          V = colors.magenta,
+
           c = colors.yellow,
           no = colors.red,
-          s = colors.orange,
-          S = colors.orange,
-          [''] = colors.orange,
           ic = colors.yellow,
           R = colors.violet,
           Rv = colors.violet,
@@ -109,7 +107,7 @@
           rm = colors.cyan,
           ['r?'] = colors.cyan,
           ['!'] = colors.red,
-          t = colors.yellow,
+          t = colors.orange,
         }
         return { fg = mode_color[vim.fn.mode()] }
       end,
@@ -143,9 +141,7 @@
     }
 
     ins_left {
-      function()
-        return '%='
-      end,
+      function() return '%=' end,
     }
 
     ins_left {
@@ -200,10 +196,8 @@
     }
 
     ins_right {
-      function()
-        return '█'
-      end,
-      color = { fg = colors.green },
+      function() return '█' end,
+      color = { fg = colors.cyan },
       padding = { left = 1 },
     }
 
