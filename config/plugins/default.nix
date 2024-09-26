@@ -16,6 +16,7 @@ in {
     ./lang
     ./treesitter
     (import ./utils build)
+    (import ./editor build)
   ];
 
   extraPlugins = with pkgs.vimPlugins; [
