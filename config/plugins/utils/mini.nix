@@ -19,7 +19,11 @@
 
     files = {
       content = { };
-      mappings = { show_help = "?"; };
+      mappings = {
+        go_in = "<cr>";
+        go_out = "-";
+        show_help = "?";
+      };
       windows = {
         preview = true;
         width_preview = 40;
@@ -31,9 +35,8 @@
       options = { try_as_border = true; };
     };
 
-    jump2d.mappings.start_jumping = "f";
-
     move = { };
+    surround = { };
     splitjoin = { };
     trailspace = { };
   };

@@ -19,10 +19,5 @@ in {
     (import ./editor build)
   ];
 
-  extraPlugins = with pkgs.vimPlugins; [
-    plenary-nvim
-    dressing-nvim
-    zen-mode-nvim
-    vim-visual-multi
-  ];
+  extraPlugins = with pkgs.vimPlugins; [ plenary-nvim dressing-nvim ];
 }
