@@ -1,6 +1,7 @@
 build: {
   imports = [
     ./git.nix
+    ./lualine
 
     (import ./telescope build)
     (import ./glance.nix build)
@@ -14,16 +15,16 @@ build: {
     nvim-autopairs = import ./autopairs.nix;
 
     rest.enable = true;
+    neotest.enable = true;
     undotree.enable = true;
 
     # bufferline = {
     #   enable = true;
     #   settings.options = {
     #     diagnostics = "nvim_lsp";
+    #     separator_style = "thick";
     #   };
     # };
-
-    neotest.enable = true;
 
     todo-comments = {
       enable = true;
