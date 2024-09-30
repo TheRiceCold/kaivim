@@ -16,6 +16,7 @@ in {
     ./lang
     ./treesitter
     (import ./utils build)
+    (import ./coding build)
     (import ./editor build)
   ];
 
