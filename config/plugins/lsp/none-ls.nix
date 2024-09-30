@@ -9,6 +9,7 @@
       statix.enable = true;
       checkstyle.enable = true;
     };
+
     # formatting.prettier = {
     #   enable = true;
     #   disableTsServerFormatter = true;

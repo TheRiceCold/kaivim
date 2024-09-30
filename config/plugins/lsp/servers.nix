@@ -6,6 +6,8 @@
   cssls.enable = true;
   astro.enable = true;
   gopls.enable = true;
+  templ.enable = true;
+  ts-ls.enable = true;
   volar.enable = true;
   eslint.enable = true;
   nil-ls.enable = true;
@@ -22,7 +24,6 @@
   texlab.enable = true;
   yamlls.enable = true;
   pyright.enable = true;
-  tsserver.enable = true;
   solargraph.enable = true;
   tailwindcss.enable = true;
   java-language-server.enable = true;

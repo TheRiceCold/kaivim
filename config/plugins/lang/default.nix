@@ -1,14 +1,13 @@
-{
-  imports = [ ./vimtex.nix ./flutter.nix ];
+pkgs: build: {
+  imports = [
+    ./vimtex.nix
+    (import ./typst.nix build)
+    (import ./flutter.nix pkgs)
+    (import ./markdown.nix pkgs)
+    (import ./tailwind.nix pkgs build)
+  ];
 
   plugins = {
-    markdown-preview = {
-      enable = true;
-      settings = {
-        auto_close = 0;
-        browser = "firefox";
-      };
-    };
     typescript-tools = import ./typescript.nix;
   };
 }

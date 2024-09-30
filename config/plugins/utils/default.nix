@@ -1,13 +1,14 @@
-build: {
+pkgs: build: {
   imports = [
-    ./git.nix
     ./lualine
-
     (import ./telescope build)
-    (import ./glance.nix build)
-    (import ./harpoon.nix build)
     (import ./silicon.nix build)
-    (import ./grug-far.nix build)
+  ];
+
+  extraPlugins = with pkgs.vimPlugins; [
+    harpoon2
+    glance-nvim
+    grug-far-nvim
   ];
 
   plugins = {
@@ -16,6 +17,7 @@ build: {
 
     rest.enable = true;
     neotest.enable = true;
+    hardtime.enable = true;
     undotree.enable = true;
 
     # bufferline = {

@@ -1,10 +1,13 @@
-build: {
+pkgs: build: {
   imports = [
     # (import ./block.nix build)
     # (import ./window-picker.nix build)
 
     (import ./scrollEOF.nix build)
-    (import ./render-markdown.nix build)
+  ];
+
+  extraPlugins = with pkgs.vimPlugins; [
+    nvim-window-picker
   ];
 
   plugins = {
@@ -13,9 +16,7 @@ build: {
       userDefaultOptions.names = false;
     };
 
-    # trouble = {
-    #   enable = true;
-    #   settings.auto_close = true;
-    # };
+    twilight.enable = true;
+    zen-mode.enable = true;
   };
 }

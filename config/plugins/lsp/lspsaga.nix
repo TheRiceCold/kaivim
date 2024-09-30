@@ -2,9 +2,9 @@
   enable = true;
   beacon.enable = true;
   ui.border = "rounded";
-  implement.enable = true;
+  # implement.enable = true;
   lightbulb.enable = false;
-  symbolInWinbar.enable = true; # Breadcrumbs
+  symbolInWinbar.enable = false; # Breadcrumbs
   codeAction.extendGitSigns = true;
 
   scrollPreview = {
