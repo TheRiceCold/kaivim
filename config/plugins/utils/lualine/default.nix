@@ -57,41 +57,25 @@
         };
       };
 
+      # NOTE:
+      # to be visible, change laststatus option value at ./config/options.nix
+      # I prefer tabline(top) over sections(statusbar)
       sections = {
         # these are to remove the defaults
         lualine_a = [{}];
         lualine_b = [{}];
-        lualine_y = [{}];
-        lualine_z = [{}];
-
-        lualine_c = import ./section-left.nix colors get-mode-color;
-        lualine_x = import ./section-right.nix colors get-mode-color;
-      };
-
-      # these are to remove the defaults
-      inactive_sections = {
-        lualine_a = [{}];
-        lualine_b = [{}];
-        lualine_y = [{}];
-        lualine_z = [{}];
         lualine_c = [{}];
         lualine_x = [{}];
+        lualine_y = [{}];
+        lualine_z = [{}];
       };
 
       tabline = {
-        lualine_a = [
-          {
-            mode = 2;
-            __unkeyed-1 = "buffers";
-            symbols = { modified = ""; alternate_file = ""; };
-            buffers_color = {
-              inactive.fg = colors.grey;
-              active = { fg = colors.blue; gui = "bold"; };
-            };
-          }
-        ];
-        lualine_z = [ { __unkeyed-1 = "tabs"; } ];
+        lualine_c = import ./section-left.nix colors get-mode-color;
+        lualine_x = import ./section-right.nix colors get-mode-color;
       };
     };
   };
+
+  extraConfigLua = "vim.o.laststatus = 0";
 }

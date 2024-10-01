@@ -3,12 +3,12 @@ pkgs: build: {
     ./lualine
     (import ./telescope build)
     (import ./silicon.nix build)
+    (import ./grug-far.nix build)
   ];
 
   extraPlugins = with pkgs.vimPlugins; [
     harpoon2
-    glance-nvim
-    grug-far-nvim
+    range-highlight-nvim
   ];
 
   plugins = {
@@ -17,16 +17,7 @@ pkgs: build: {
 
     rest.enable = true;
     neotest.enable = true;
-    hardtime.enable = true;
     undotree.enable = true;
-
-    # bufferline = {
-    #   enable = true;
-    #   settings.options = {
-    #     diagnostics = "nvim_lsp";
-    #     separator_style = "thick";
-    #   };
-    # };
 
     todo-comments = {
       enable = true;

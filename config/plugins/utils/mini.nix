@@ -6,7 +6,7 @@
     align = { };
 
     basics = {
-      options = { };
+      options = { basic = true; };
       mappings = {
         basic = true;
         windows = true;

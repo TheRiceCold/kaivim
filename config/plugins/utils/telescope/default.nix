@@ -25,12 +25,12 @@ build:
           action = act: "require'telescope.actions'.${act}";
         in {
           i = {
-            "<PageUp>".__raw = action "preview_scrolling_up";
-            "<PageDown>".__raw = action "preview_scrolling_down";
+            "<c-k>".__raw = action "preview_scrolling_up";
+            "<c-j>".__raw = action "preview_scrolling_down";
           };
           n = {
-            "<PageUp>".__raw = action "preview_scrolling_up";
-            "<PageDown>".__raw = action "preview_scrolling_down";
+            "<c-k>".__raw = action "preview_scrolling_up";
+            "<c-j>".__raw = action "preview_scrolling_down";
           };
         };
         extensions = { };

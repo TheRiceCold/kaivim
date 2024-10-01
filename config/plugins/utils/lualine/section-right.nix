@@ -1,5 +1,22 @@
 colors: get-mode-color: [
   {
+    path = 1;
+    shorting_target = 40;
+    color.fg = colors.grey;
+    __unkeyed-1 = "filename";
+  }
+
+  {
+    __unkeyed-1 = "diff";
+    symbols = { added = " "; modified = "󰝤 "; removed = " "; };
+    diff_color = {
+      added.fg = colors.green;
+      removed.fg = colors.red;
+      modified.fg = colors.orange;
+    };
+  }
+
+  {
     sources = [ "nvim_lsp" ];
     __unkeyed-1 = "diagnostics";
     diagnostics_color = {
