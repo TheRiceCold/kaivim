@@ -9,8 +9,18 @@
   end
 
   wk.add({
+    -- Extras --
+    set_cmd('C', 'ColorizerToggle', 'Colorizer'),
+    set_cmd('r', require'grug-far'.open, 'Replace'),
+    set_cmd('u', 'UndotreeToggle', 'Undo Tree'),
+    set_cmd('z', function()
+      vim.wo.number = false
+      require'zen-mode'.toggle()
+    end, 'Zen Mode'),
+
     --- Markdown --
     { '<leader>M', group = 'Markdown' },
+    set_cmd('Mg', 'Glow', 'Glow'),
     set_cmd('Mr', 'RenderMarkdown toggle', 'Toggle render'),
     set_cmd('Mv', 'MarkdownPreviewToggle', 'Browser preview'),
 
@@ -26,15 +36,13 @@
     set_cmd('Ss', silicon.file, 'Save as file'),
     set_cmd('Sc', silicon.clip, 'Copy to clipboard'),
 
+    { '<leader>T', group = 'Typst' },
+
     -- Latex (Vimtex) --
     { '<leader>L', group = 'Latex' },
     latex('v', 'View'),
     latex('e', 'Errors'),
     latex('r', 'Reload'),
     latex('c', 'Compile'),
-
-    -- Extras --
-    set_cmd('z', require'zen-mode'.toggle, 'Zen Mode'),
-    set_cmd('C', 'ColorizerToggle', 'Colorizer'),
   })
 ''

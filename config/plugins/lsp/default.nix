@@ -5,24 +5,22 @@
       servers = import ./servers.nix;
       keymaps = {
         lspBuf = {
-          K = "hover";
-          # Replaced by glance.nvim
-          # gd = "definition";
-          # gD = "references";
-          # gi = "implementation";
+          # K = "hover"; # Replaced by Lspsaga hover_doc
+          gd = "definition";
+          # gD = "references"; # Replaced by Trouble lsp_references
+          # gi = "implementation"; # Replaced by Trouble lsp_implementations
         };
       };
       enabledServers = [];
     };
 
-    # Shows function signature when u type
-    # lsp-signature.enable = true;
+    lint = import ./lint.nix;
+    # adds pictograms
+    lspkind = import ./lspkind.nix;
+
+    lspsaga = import ./lspsaga.nix;
 
     # Diagnostics
     trouble.enable = true;
-
-    # lint = import ./lint.nix;
   };
-  # Rename
-  # Action
 }

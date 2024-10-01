@@ -30,6 +30,10 @@
   };
   extraOptions = {
     maxwidth = 50;
-    ellipsis_char = "...";
+    mode = "symbol";
+    ellipsisChar = "...";
+
+    show_labelDetails = true;
+    before.__raw = /* lua */ '' require'tailwind-tools.cmp'.lspkind_format '';
   };
 }
