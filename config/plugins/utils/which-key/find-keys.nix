@@ -10,9 +10,9 @@
       desc or action)
   end
 
-  function todo(key, keyword, desc)
+  function todo(key, keyword, desc, normal_mode)
     return set_cmd('ft'..key,
-      'TodoTelescope theme=ivy keywords='..(keyword or ""),
+      'TodoTelescope initial_mode=normal theme=ivy keywords='..(keyword or ""),
     desc or keyword)
   end
 
@@ -20,7 +20,7 @@
     local conf = require'telescope.config'.values
     local file_paths = {}
     for _, item in ipairs(harpoon_files.items) do
-        table.insert(file_paths, item.value)
+      table.insert(file_paths, item.value)
     end
 
     require'telescope.pickers'.new({}, {
@@ -40,9 +40,9 @@
     telescope('l', 'live_grep', 'Live Grep'),
 
     telescope('m', 'marks'),
-    telescope('b', 'buffers'),
+    telescope('b', 'buffers', 'buffers', { initial_mode = 'normal' }),
     telescope('k', 'keymaps'),
-    telescope('j', 'jumplist'),
+    telescope('j', 'jumplist', 'Jumplist', { initial_mode = 'normal' }),
     telescope('c', 'commands'),
     telescope('C', 'colorscheme'),
 
@@ -54,15 +54,15 @@
     -- Git --
     { '<leader>fG', group='Git' },
     telescope('Gs', 'git_status', 'Status'),
-    telescope('Gc', 'git_commits', 'Commits'),
-    telescope('Gb', 'git_bcommits', 'Buffer commits'),
-    telescope('GB', 'git_branches', 'Branches'),
+    telescope('Gc', 'git_commits', 'Commits', { initial_mode = 'normal' }),
+    telescope('Gb', 'git_bcommits', 'Buffer commits', { initial_mode = 'normal' }),
+    telescope('GB', 'git_branches', 'Branches', { initial_mode = 'normal' }),
 
     -- LSP --
     { '<leader>fL', group='Lsp' },
-    telescope('Lr', 'lsp_references', 'References'),
-    telescope('Lf', 'lsp_definitions', 'Definitions'),
-    telescope('Li', 'lsp_implementations', 'Implementations'),
+    telescope('Lr', 'lsp_references', 'References', { initial_mode = 'normal' }),
+    telescope('Ld', 'lsp_definitions', 'Definitions', { initial_mode = 'normal'}),
+    telescope('Li', 'lsp_implementations', 'Implementations', { initial_mode = 'normal' }),
 
     -- Todo Comments ---
     { '<leader>ft', group='Todo Comments' },

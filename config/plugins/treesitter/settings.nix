@@ -2,7 +2,10 @@
   indent.enable = true;
   highlight.enable = true;
   ensureInstalled = [
-    "c"
+    "nix"
+
+    "c" "cpp" "cmake"
+
     "bash"
     "make"
     "diff"
@@ -11,13 +14,19 @@
 
     "lua"
     "go" "gomod" "gosum"
-    "html" "css"
+    "css"
+    "html"
     "templ"
 
+    "java"
+
     "tsx"
+    "astro"
     "javascript"
     "typescript"
-    "json" "yaml"
+
+    "json"
+    "yaml"
 
     "sql"
     "http"
@@ -26,12 +35,12 @@
     "python"
     "requirements"
 
-    "nix"
     "regex"
     "comment"
 
     "markdown" "markdown_inline"
-    "gitattributes" "gitcommit" "gitignore"
+
+    "gitignore" "gitconfig" "gitattributes"
   ];
   refactor = {
     highlight_definitions.enable = true;
@@ -51,5 +60,9 @@
       scope_incremental = false;
       node_decremental = "V";
     };
+  };
+
+  playground = {
+    enable = true;
   };
 }

@@ -8,6 +8,6 @@
     enableMoveright = true;
     disableInVisualblock = false;
     enableCheckBracketLine = false;
-    disabledFiletypes = [ "TelescopePrompt" ];
+    disabledFiletypes = [ "TelescopePrompt" "minifiles" ];
   };
 }

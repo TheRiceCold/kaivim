@@ -1,24 +1,34 @@
 { pkgs, ... }:
 let
-  build = owner: name: version: rev: hash: pkgs.vimUtils.buildVimPlugin {
-    pname = name;
-    inherit version;
-    src = pkgs.fetchFromGitHub {
-      repo = name;
-      inherit owner rev;
-      hash = "sha256-${hash}";
+  build =
+    owner: name: version: rev: hash:
+    pkgs.vimUtils.buildVimPlugin {
+      pname = name;
+      inherit version;
+      src = pkgs.fetchFromGitHub {
+        repo = name;
+        inherit owner rev;
+        hash = "sha256-${hash}";
+      };
     };
-  };
-in {
+in
+{
   imports = [
-    ./ui
+    ./cmp
     ./lsp
-    ./lang
+    ./snippet
     ./treesitter
-    (import ./utils build)
-    (import ./coding build)
-    (import ./editor build)
+    ./formatting
+    # (import ./dap build)
+    (import ./git pkgs build)
+    (import ./lang pkgs build)
+    (import ./utils pkgs build)
+    (import ./editing pkgs build)
   ];
 
-  extraPlugins = with pkgs.vimPlugins; [ plenary-nvim dressing-nvim ];
+  plugins.mini.enable = true;
+  extraPlugins = with pkgs.vimPlugins; [
+    plenary-nvim
+    dressing-nvim
+  ];
 }

@@ -2,8 +2,10 @@ colors: get-mode-color: [
   {
     color.__raw = get-mode-color;
     __unkeyed-1.__raw = ''function() return '█' end'';
-    padding = { left = 0; right = 1; };
   }
+
+  {
+    color.fg = colors.pink; __unkeyed-1 = "progress"; }
 
   # NOTE: I use gitmux
   # {

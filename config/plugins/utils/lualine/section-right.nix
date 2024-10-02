@@ -1,19 +1,9 @@
 colors: get-mode-color: [
   {
     path = 1;
-    shorting_target = 40;
+    shorting_target = 150;
     color.fg = colors.grey;
     __unkeyed-1 = "filename";
-  }
-
-  {
-    __unkeyed-1 = "diff";
-    symbols = { added = " "; modified = "󰝤 "; removed = " "; };
-    diff_color = {
-      added.fg = colors.green;
-      removed.fg = colors.red;
-      modified.fg = colors.orange;
-    };
   }
 
   {
@@ -29,7 +19,7 @@ colors: get-mode-color: [
   {
     __unkeyed-1.__raw = ''
       function()
-        local msg = 'No Active Lsp'
+        local msg = 'none'
         local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
         local clients = vim.lsp.get_active_clients()
         if next(clients) == nil then
@@ -45,10 +35,27 @@ colors: get-mode-color: [
       end
     '';
     icon = "LSP:";
-    color = { fg = colors.pink; gui = "bold"; };
+    color = { fg = colors.magenta; gui = "bold"; };
   }
 
-  { color.fg = colors.violet; __unkeyed-1 = "progress"; }
+  {
+    __unkeyed-1 = "diff";
+    symbols = { added = " "; modified = "󰝤 "; removed = " "; };
+    diff_color = {
+      added.fg = colors.green;
+      removed.fg = colors.red;
+      modified.fg = colors.orange;
+    };
+  }
+
+  {
+    # icon = ""; # NOTE: IDK why it shows twice
+    icon = "";
+    padding.right = 1;
+    color.fg = colors.violet;
+    __unkeyed-1 = "gh-actions";
+  }
+
 
   {
     padding.left = 1;

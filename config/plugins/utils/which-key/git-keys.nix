@@ -34,6 +34,7 @@
     lazygit('C', 'Filter', 'Project Commits'),
     lazygit('B', 'FilterCurrentFile', 'Buffer Commits'),
 
+    set_cmd('gH', 'GhActions', 'Github Actions'),
     set_cmd('gm', 'GitMessenger', 'Show Message'),
 
     { '<leader>gh', group='Hunk' },

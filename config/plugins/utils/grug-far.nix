@@ -1,4 +1,4 @@
-build: let
+pkgs: build: let
   grug-far = build
     "MagicDuck"
     "grug-far.nvim"
@@ -7,6 +7,7 @@ build: let
     "qDbRn6abSbQDz6en9aC7dNZSUbeag6HrPwAW4oL6uzM=";
 in {
   extraPlugins = [ grug-far ];
+  extraPackages = [ pkgs.ast-grep ];
   extraConfigLua = ''
     require'grug-far'.setup {
 

@@ -30,6 +30,7 @@
     rest('l', 'last', 'last request'),
     rest('e', 'env show'),
     rest('s', 'env select'),
+    rest('L', 'logs', 'Logs'),
 
     --- Snap (Silicon) --
     { '<leader>S', group = 'Snap (Silicon)' },

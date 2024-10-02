@@ -4,14 +4,6 @@
     settings = {
       preset = "helix"; # "classic" | "modern" | "helix"
       win = { border = "none"; };
-      # Available sorters:
-      # * local: buffer-local mappings first
-      # * order: order of the items (Used by plugins like marks / registers)
-      # * group: groups last
-      # * alphanum: alpha-numerical first
-      # * mod: special modifier keys last
-      # * manual: the order the mappings were added
-      # * case: lower-case first
       sort = ["manual"];
       icons.mappings = false;
     };
@@ -22,16 +14,12 @@
     local harpoon = require'harpoon'
     local files = require'mini.files'
 
-    function set_cmd(key, action, desc, opt)
+    function set_cmd(key, action, desc)
       local cmd = {
         '<leader>'..key,
         type(action) == 'string' and '<cmd>'..action..'<cr>' or action,
         desc = desc:gsub("^%l", string.upper),
       }
-
-      if not (opt == nil) then
-        table.insert(cmd, opt)
-      end
 
       return cmd
     end

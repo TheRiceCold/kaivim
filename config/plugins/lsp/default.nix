@@ -1,26 +1,50 @@
 {
+  imports = [ ./lint.nix ];
+
   plugins = {
     lsp = {
       enable = true;
+      enabledServers = [ ];
       servers = import ./servers.nix;
-      keymaps = {
-        lspBuf = {
-          # K = "hover"; # Replaced by Lspsaga hover_doc
-          gd = "definition";
-          # gD = "references"; # Replaced by Trouble lsp_references
-          # gi = "implementation"; # Replaced by Trouble lsp_implementations
-        };
-      };
-      enabledServers = [];
+      keymaps.lspBuf.gd = "definition";
     };
 
-    lint = import ./lint.nix;
     # adds pictograms
     lspkind = import ./lspkind.nix;
 
-    lspsaga = import ./lspsaga.nix;
-
     # Diagnostics
     trouble.enable = true;
+
+    lspsaga = import ./lspsaga.nix;
   };
+
+  keymaps =
+    let
+      toggle-term = key: mode: {
+        inherit mode key;
+        options.desc = "Toggle Terminal";
+        action = "<cmd>Lspsaga term_toggle<cr>";
+      };
+
+      trouble-lsp = key: action: {
+        mode = "";
+        inherit key;
+        options.desc = action;
+        action = "<cmd>Trouble lsp_${action}<cr>";
+      };
+    in
+    [
+      {
+        mode = "";
+        key = "K";
+        options.desc = "Hover";
+        action = "<cmd>Lspsaga hover_doc<cr>";
+      }
+      (toggle-term "<c-\\>" "n")
+      (toggle-term "<c-\\>" "t")
+
+      (trouble-lsp "gr" "definitions")
+      (trouble-lsp "gr" "references")
+      (trouble-lsp "gi" "implementations")
+    ];
 }

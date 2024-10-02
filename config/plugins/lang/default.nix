@@ -1,6 +1,6 @@
 pkgs: build: {
   imports = [
-    ./vimtex.nix
+    ./latex.nix
     (import ./typst.nix build)
     (import ./flutter.nix pkgs)
     (import ./markdown.nix pkgs)
@@ -8,6 +8,6 @@ pkgs: build: {
   ];
 
   plugins = {
-    typescript-tools = import ./typescript.nix;
+    orgmode = import ./orgmode.nix;
   };
 }

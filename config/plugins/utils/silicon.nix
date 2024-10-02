@@ -1,4 +1,4 @@
-build: let
+pkgs: build: let
   silicon = build
     "michaelrommel"
     "nvim-silicon"
@@ -6,6 +6,11 @@ build: let
     "9fe6001dc8cad4d9c53bcfc8649e3dc76ffa169c"
     "1BeJSpcmZeuIZXrbrxMKvaQBZn2TtsjrFXk26w2In+E=";
 in {
+  extraPackages = with pkgs; [
+    silicon
+    jetbrains-mono
+    noto-fonts-color-emoji
+  ];
   extraPlugins = [ silicon ];
 
   extraConfigLua = ''

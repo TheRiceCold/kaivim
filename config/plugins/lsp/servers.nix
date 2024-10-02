@@ -1,4 +1,47 @@
 {
+  bashls = {
+    enable = true;
+		cmd = [ "bash-language-server" "start" ];
+  };
+  lua-ls = {
+    enable = true;
+    settings.Lua = {
+      hint.enable = true;
+      runtime.version = "LuaJIT";
+    };
+  };
+  ts-ls = {
+    enable = true;
+    cmd = [ "typescript-language-server" "--stdio" ];
+    filetypes = [
+			"javascript"
+			"javascriptreact"
+			"javascript.jsx"
+			"typescript"
+			"typescriptreact"
+			"typescript.tsx"
+    ];
+  };
+  eslint = {
+    enable = true;
+		cmd = [ "vscode-eslint-language-server" "--stdio" ];
+    filetypes = [
+			"javascript"
+			"javascriptreact"
+			"javascript.jsx"
+			"typescript"
+      "typescriptreact"
+			"typescript.tsx"
+			"vue"
+			"svelte"
+			"astro"
+			"js"
+    ];
+  };
+  tailwindcss = {
+    enable = true;
+    cmd = [ "tailwindcss-language-server" "--stdio" ];
+  };
   efm.enable = true;
   sqls.enable = true;
   html.enable = true;
@@ -7,15 +50,11 @@
   astro.enable = true;
   gopls.enable = true;
   templ.enable = true;
-  ts-ls.enable = true;
   volar.enable = true;
-  eslint.enable = true;
   nil-ls.enable = true;
-  bashls.enable = true;
   clangd.enable = true;
   dartls.enable = true;
   jsonls.enable = true;
-  lua-ls.enable = true;
   graphql.enable = true;
   emmet-ls.enable = true;
   dockerls.enable = true;
@@ -25,7 +64,6 @@
   yamlls.enable = true;
   pyright.enable = true;
   solargraph.enable = true;
-  tailwindcss.enable = true;
   java-language-server.enable = true;
   rust-analyzer = {
     enable = true;

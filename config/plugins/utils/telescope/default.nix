@@ -1,9 +1,10 @@
-build:
-{
+pkgs: build: {
   imports = [
     (import ./emoji.nix build)
     (import ./glyph.nix build)
   ];
+
+  extraPackages = [ pkgs.ripgrep ];
 
   plugins.telescope = {
     enable = true;

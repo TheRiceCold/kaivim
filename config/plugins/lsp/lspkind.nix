@@ -32,8 +32,15 @@
     maxwidth = 50;
     mode = "symbol";
     ellipsisChar = "...";
+    menu = {
+      path = "[Path]";
+      cmdline = "[CMD]";
+      nvim_lsp = "[LSP]";
+      buffer = "[Buffer]";
+      luasnip = "[LuaSnip]";
+    };
 
     show_labelDetails = true;
-    before.__raw = /* lua */ '' require'tailwind-tools.cmp'.lspkind_format '';
+    before.__raw = /*lua*/ '' require'tailwind-tools.cmp'.lspkind_format '';
   };
 }
