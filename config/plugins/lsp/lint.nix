@@ -1,37 +1,56 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   extraPackages = with pkgs; [
     statix
     selene
-    # rubocop
+
     eslint_d
-    htmlhint
+    stylelint
+
+    yamllint
+    sqlfluff
+
+    markdownlint-cli2
+
+    ruff
+    rubocop
+    vala-lint
     checkstyle
     golangci-lint
     python312Packages.flake8
+
+    clippy
+    cppcheck
+    cmake-lint
   ];
 
   plugins.lint = {
     enable = true;
     lintersByFt = {
-      bash = [ "bash" ];
-      nix = [ "statix" ];
+      bash = ["bash"];
+      nix = ["statix"];
+      lua = ["selene"];
 
-      html = [ "htmlhint" ];
-      go = [ "golangcilint" ];
+      css = ["stylelint"];
+      javascript = ["eslint_d"];
+      javascriptreact = ["eslint_d"];
+      typescript = ["eslint_d"];
+      typescriptreact = ["eslint_d"];
 
-      java = [ "checkstyle" ];
-      lua = [ "luacheck" ];
+      sql = ["sqlfluff"];
 
-      javascript = [ "eslint_d" ];
-      javascriptreact = [ "eslint_d" ];
+      yaml = ["yamllint"];
 
-      python = [ "flake8" ];
+      markdown = ["markdownlint-cli2"];
 
-      # ruby = [ "rubocop" ];
+      vala = ["vala"];
+      python = ["ruff"];
+      ruby = ["rubocop"];
+      go = ["golangcilint"];
+      java = ["checkstyle"];
 
-      typescript = [ "eslint_d" ];
-      typescriptreact = [ "eslint_d" ];
+      rust = ["clippy"];
+      cpp = ["cppcheck"];
+      cmake = ["cmakelint"];
     };
   };
 }

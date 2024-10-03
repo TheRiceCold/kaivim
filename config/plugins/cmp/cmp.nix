@@ -5,7 +5,7 @@
       autoEnableSources = true;
       settings = {
         experimental.ghost_text = true;
-        mapping.__raw = /* lua */ ''
+        mapping.__raw = ''
           cmp.mapping.preset.insert({
             ['<C-j>'] = cmp.mapping.scroll_docs(-4),
             ['<C-k>'] = cmp.mapping.scroll_docs(4),
@@ -26,7 +26,7 @@
           };
         };
 
-        snippet.expand = /* lua */ ''
+        snippet.expand = ''
           function(args)
             require'luasnip'.lsp_expand(args.body)
           end
@@ -40,11 +40,11 @@
         completion.completeopt = "menu,menuone,preview,noinsert";
 
         sources = [
-          { name = "nvim_lsp"; }
-          { name = "luasnip"; }
-          { name = "path"; }
-          { name = "buffer"; }
-          { name = "cmdline"; }
+          {name = "nvim_lsp";}
+          {name = "luasnip";}
+          {name = "path";}
+          {name = "buffer";}
+          {name = "cmdline";}
         ];
       };
     };
@@ -55,4 +55,3 @@
     cmp_luasnip.enable = true;
   };
 }
-

@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  extraPackages = with pkgs; [ tectonic sioyek ];
+  extraPackages = with pkgs; [ sioyek tectonic ];
 
   plugins.vimtex.enable = true;
 

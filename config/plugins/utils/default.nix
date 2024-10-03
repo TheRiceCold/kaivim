@@ -14,10 +14,11 @@ pkgs: build: {
 
   plugins = {
     alpha = import ./alpha.nix;
+    todo-comments = import ./todo-comments.nix;
 
     mini.modules = {
       files = {
-        content = { };
+        content = {};
         mappings = {
           go_in = "<cr>";
           go_out = "-";
@@ -28,42 +29,20 @@ pkgs: build: {
           width_preview = 40;
         };
       };
-      surround = { };
-      cursorword = { };
+      surround = {};
+      cursorword = {};
     };
-
-    rest.enable = true;
-    noice.enable = true;
-    notify.enable = true; # Kinda annoying sometimes
-    neotest.enable = true;
-    helpview.enable = true;
-    undotree.enable = true;
 
     nvim-colorizer = {
       enable = true;
       userDefaultOptions.names = false;
     };
 
-    todo-comments = {
-      enable = true;
-      settings.keywords = {
-        TODO = {
-          icon = "";
-          color = "info";
-        };
-        DOCS = {
-          icon = "";
-          color = "info";
-        };
-        NOTE = {
-          icon = "";
-          color = "hint";
-        };
-        INFO = {
-          icon = "";
-          color = "hint";
-        };
-      };
-    };
+    rest.enable = true;
+    noice.enable = true;
+    notify.enable = true;
+    neotest.enable = true;
+    helpview.enable = true;
+    undotree.enable = true;
   };
 }

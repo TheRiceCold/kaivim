@@ -7,14 +7,18 @@ colors: get-mode-color: [
   }
 
   {
-    sources = [ "nvim_lsp" ];
+    sources = ["nvim_lsp"];
     __unkeyed-1 = "diagnostics";
     diagnostics_color = {
       color_info.fg = colors.cyan;
       color_error.fg = colors.red;
       color_warn.fg = colors.yellow;
     };
-    symbols = { error = " "; warn = " "; info = " "; };
+    symbols = {
+      error = " ";
+      warn = " ";
+      info = " ";
+    };
   }
   {
     __unkeyed-1.__raw = ''
@@ -35,12 +39,19 @@ colors: get-mode-color: [
       end
     '';
     icon = "LSP:";
-    color = { fg = colors.magenta; gui = "bold"; };
+    color = {
+      fg = colors.magenta;
+      gui = "bold";
+    };
   }
 
   {
     __unkeyed-1 = "diff";
-    symbols = { added = " "; modified = "󰝤 "; removed = " "; };
+    symbols = {
+      added = " ";
+      modified = "󰝤 ";
+      removed = " ";
+    };
     diff_color = {
       added.fg = colors.green;
       removed.fg = colors.red;
@@ -55,7 +66,6 @@ colors: get-mode-color: [
     color.fg = colors.violet;
     __unkeyed-1 = "gh-actions";
   }
-
 
   {
     padding.left = 1;

@@ -1,7 +1,7 @@
 pkgs: build: {
   imports = [ (import ./gh-actions.nix build) ];
 
-  extraPackages = with pkgs; [ delta lazygit ];
+  extraPackages = with pkgs; [delta lazygit];
 
   plugins = {
     lazygit.enable = true;

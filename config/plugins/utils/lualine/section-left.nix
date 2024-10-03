@@ -5,7 +5,9 @@ colors: get-mode-color: [
   }
 
   {
-    color.fg = colors.pink; __unkeyed-1 = "progress"; }
+    color.fg = colors.pink;
+    __unkeyed-1 = "progress";
+  }
 
   # NOTE: I use gitmux
   # {
@@ -17,10 +19,16 @@ colors: get-mode-color: [
   {
     mode = 2;
     __unkeyed-1 = "buffers";
-    symbols = { modified = ""; alternate_file = ""; };
+    symbols = {
+      modified = "";
+      alternate_file = "";
+    };
     buffers_color = {
       inactive.fg = colors.grey;
-      active = { fg = colors.blue; gui = "bold"; };
+      active = {
+        fg = colors.blue;
+        gui = "bold";
+      };
     };
   }
 ]

@@ -2,7 +2,7 @@
   enable = true;
   settings = {
     flavour = "mocha"; # latte, mocha, frappe, macchiato
-    background = { dark = "mocha"; };
+    background.dark = "mocha";
     dimInactive.enabled = false;
     integrations = {
       cmp = true;
@@ -15,7 +15,7 @@
       treesitter = true;
       treesitter_context = true;
       mini.enabled = true;
-      native_lsp = { enabled = true; };
+      native_lsp.enabled = true;
     };
   };
 }

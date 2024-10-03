@@ -1,12 +1,13 @@
-build: let
-  gh-action = build
-    "topaxi"
-    "gh-actions.nvim"
-    "2024-09-20"
-    "37be09dfe57531ea8a30143097d7340137092145"
-    "S00YM2ULmYiRzVhiGat1mySmYrja8O9E9lVDbUSb/rA=";
-in {
-  extraPlugins = [ gh-action ];
+build: {
+  extraPlugins = let
+    # LINK: https://github.com/topaxi/gh-actions.nvim
+    gh-action = build
+      "topaxi"
+      "gh-actions.nvim"
+      "2024-09-20"
+      "37be09dfe57531ea8a30143097d7340137092145"
+      "S00YM2ULmYiRzVhiGat1mySmYrja8O9E9lVDbUSb/rA=";
+  in [gh-action];
 
   extraConfigLua = ''
     require'gh-actions'.setup {

@@ -41,6 +41,8 @@
     };
 
     show_labelDetails = true;
-    before.__raw = /*lua*/ '' require'tailwind-tools.cmp'.lspkind_format '';
+    before.__raw = ''
+      require'tailwind-tools.cmp'.lspkind_format
+    '';
   };
 }

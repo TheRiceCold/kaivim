@@ -2,7 +2,10 @@
   enable = true;
   # theme = "dashboard";
   layout = [
-    { type = "padding"; val = 2; }
+    {
+      type = "padding";
+      val = 2;
+    }
     {
       type = "text";
       val = [
@@ -13,9 +16,15 @@
         "██║  ██╗██║  ██║██║ ╚████╔╝ ██║██║ ╚═╝ ██║"
         "╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝"
       ];
-      opts = { position = "center"; hl = "Type"; };
+      opts = {
+        position = "center";
+        hl = "Type";
+      };
     }
-    { type = "padding"; val = 2; }
+    {
+      type = "padding";
+      val = 2;
+    }
     {
       type = "group";
       val = let
@@ -51,7 +60,10 @@
     {
       type = "text";
       val = "What we do in life, echoes in eternity";
-      opts = { position = "center"; hl = "Keyword"; };
+      opts = {
+        position = "center";
+        hl = "Keyword";
+      };
     }
   ];
 }

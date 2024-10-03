@@ -1,6 +1,7 @@
 let
   colors = import ./colors.nix;
-  get-mode-color = # lua
+  get-mode-color =
+    # lua
     ''
       function()
         local mode_color = {
@@ -32,8 +33,7 @@ let
         return { fg = mode_color[vim.fn.mode()] }
       end
     '';
-in
-{
+in {
   lualine_c = import ./section-left.nix colors get-mode-color;
   lualine_x = import ./section-right.nix colors get-mode-color;
 }

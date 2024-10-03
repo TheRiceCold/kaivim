@@ -18,7 +18,7 @@
         hide_fillchars = true;
         italic_comments = true;
         terminal_colors = false;
-        theme = { };
+        theme = {};
       };
     };
 

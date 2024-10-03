@@ -1,7 +1,7 @@
 pkgs: {
-  extraPlugins = with pkgs.vimPlugins; [ flutter-tools-nvim ];
+  extraPlugins = with pkgs.vimPlugins; [flutter-tools-nvim];
 
-  extraConfigLua = /* lua */ ''
+  extraConfigLua = ''
     require'flutter-tools'.setup { }
   '';
 }

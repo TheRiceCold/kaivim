@@ -1,10 +1,9 @@
 pkgs: build: {
   imports = [
-    (import ./emoji.nix build)
-    (import ./glyph.nix build)
+    (import ./extensions.nix build)
   ];
 
-  extraPackages = [ pkgs.ripgrep ];
+  extraPackages = [pkgs.ripgrep];
 
   plugins.telescope = {
     enable = true;
@@ -34,7 +33,6 @@ pkgs: build: {
             "<c-j>".__raw = action "preview_scrolling_down";
           };
         };
-        extensions = { };
       };
     };
   };

@@ -18,7 +18,10 @@
 
   rename = {
     autoSave = false;
-    keys = { exec = "<cr>"; quit = "q"; };
+    keys = {
+      exec = "<cr>";
+      quit = "q";
+    };
   };
 
   beacon.enable = false;

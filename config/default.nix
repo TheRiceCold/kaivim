@@ -1,9 +1,5 @@
 {
-  imports = [
-    ./plugins
-    ./neovide.nix
-    ./colorschemes
-  ];
+  imports = [ ./plugins ./neovide.nix ./colorschemes ];
 
   config = {
     opts = import ./options.nix;

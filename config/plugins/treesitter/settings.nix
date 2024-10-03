@@ -2,31 +2,38 @@
   indent.enable = true;
   highlight.enable = true;
   ensureInstalled = [
+    "bash"
+    "lua"
     "nix"
 
-    "c" "cpp" "cmake"
-
-    "bash"
+    "c"
+    "cpp"
     "make"
-    "diff"
+    "cmake"
+
+    "zig"
+    "rust"
+
     "comment"
     "dockerfile"
 
-    "lua"
-    "go" "gomod" "gosum"
+    "go"
+    "gomod"
+    "gosum"
+
     "css"
     "html"
     "templ"
-
-    "java"
 
     "tsx"
     "astro"
     "javascript"
     "typescript"
 
+    "xml"
     "json"
     "yaml"
+    "toml"
 
     "sql"
     "http"
@@ -38,9 +45,25 @@
     "regex"
     "comment"
 
-    "markdown" "markdown_inline"
+    "latex"
+    "markdown"
+    "markdown_inline"
 
-    "gitignore" "gitconfig" "gitattributes"
+    "diff"
+    "gitignore"
+    "git_config"
+    "gitattributes"
+
+    "vala"
+    "dart"
+    "java"
+    "ruby"
+
+    "gdscript"
+    "gdshader"
+
+    "tmux"
+    "hyprlang"
   ];
   refactor = {
     highlight_definitions.enable = true;

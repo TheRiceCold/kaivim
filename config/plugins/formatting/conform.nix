@@ -1,55 +1,55 @@
 { lib, pkgs, ... }:
 {
-  extraPackages = with pkgs; [ nixfmt-rfc-style ];
+  extraPackages = with pkgs; [ alejandra black ];
 
   plugins.conform-nvim = {
     enable = true;
     settings = {
+      notifyOnError = true;
       formatters_by_ft = let
         prettier = {
           __unkeyed-1 = "prettierd";
-          __unkeyed-2 = "prettier";
           stop_after_first = true;
         };
       in {
-        lua = [ "stylua" ];
-        nix = [ "nixfmt" ];
-        python = [ "flake8" ];
-        go = [ "goimports" "gofmt" "golines" ];
+        sh = ["shfmt"];
+        lua = ["stylua"];
+        nix = ["alejandra"];
 
-        rust = [ "rustfmt" ];
-        c = [ "clang_format" ];
-        cmake = [ "cmake_format" ];
-        cpp = [ "clang_format" ];
-
-        yaml = [ "yamlfmt" ];
-
-        css = prettier;
-        json = prettier;
         html = prettier;
-        markdown = prettier;
-
+        css = prettier;
         javascript = prettier;
-        typescript= prettier;
+        typescript = prettier;
 
-        sh = [ "shfmt" ];
+        sql = ["sqlfluff"];
 
-        "_" = [ "squeeze_blanks" "trim_whitespace" "trim_newlines" ];
-      };
+        json = prettier;
+        yaml = ["yamlfmt"];
 
-      format_on_save = {
-        timeout_ms = 500;
-        lsp_format = "fallback";
+        typst = ["typstyle"];
+
+        go = ["goimports" "gofmt"];
+
+        python = ["black"];
+
+        java = ["google-java-format"];
+
+        rust = ["rustfmt"];
+        c = ["clang_format"];
+        cmake = ["cmake_format"];
+        cpp = ["clang_format"];
+
+        "_" = ["squeeze_blanks" "trim_whitespace" "trim_newlines"];
       };
 
       formatters = {
         prettier = {
           command = "prettier";
-          prepend_args = [ "-w" ];
+          prepend_args = ["-w"];
         };
         prettierd = {
           command = "prettierd";
-          prepend_args = [ "-w" ];
+          prepend_args = ["-w"];
         };
         shellcheck.command = lib.getExe pkgs.shellcheck;
         shfmt.command = lib.getExe pkgs.shfmt;

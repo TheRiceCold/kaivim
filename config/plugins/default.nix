@@ -1,7 +1,5 @@
-{ pkgs, ... }:
-let
-  build =
-    owner: name: version: rev: hash:
+{ pkgs, ... }: let
+  build = owner: name: version: rev: hash:
     pkgs.vimUtils.buildVimPlugin {
       pname = name;
       inherit version;
@@ -11,8 +9,7 @@ let
         hash = "sha256-${hash}";
       };
     };
-in
-{
+in {
   imports = [
     ./cmp
     ./lsp
