@@ -1,10 +1,5 @@
-pkgs: build: {
-  imports = [
-    (import ./extensions.nix build)
-  ];
-
+{ pkgs, ... }: {
   extraPackages = [pkgs.ripgrep];
-
   plugins.telescope = {
     enable = true;
     settings = {
@@ -36,4 +31,19 @@ pkgs: build: {
       };
     };
   };
+
+  # Extensions
+  extraPlugins = let
+    builds = import ../builds.nix pkgs;
+  in
+    with builds; [
+      telescope-emoji
+      telescope-glyph
+    ];
+
+  extraConfigLua = ''
+    local telescope = require'telescope'
+    telescope.load_extension('emoji')
+    telescope.load_extension('glyph')
+  '';
 }

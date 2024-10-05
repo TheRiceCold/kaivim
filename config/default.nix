@@ -1,9 +1,10 @@
 {
-  imports = [ ./plugins ./neovide.nix ./colorschemes ];
+  imports = [ ./plugins ./colorschemes ];
 
   config = {
     opts = import ./options.nix;
     globals.mapleader = " ";
+
     keymaps = [
       {
         mode = "";
@@ -12,5 +13,8 @@
         options.desc = "Redo";
       }
     ];
+
+    # Neovide config
+    extraConfigLua = builtins.readFile ./neovide.lua;
   };
 }

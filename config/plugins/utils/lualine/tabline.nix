@@ -1,7 +1,6 @@
 let
   colors = import ./colors.nix;
-  get-mode-color =
-    # lua
+  get-mode-color = /*lua*/
     ''
       function()
         local mode_color = {

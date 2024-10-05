@@ -1,8 +1,4 @@
-build: {
-  imports = [
-    (import ./chainsaw.nix build)
-  ];
-
+{
   plugins.dap = {
     enable = true;
     signs = {
@@ -215,10 +211,7 @@ build: {
       mode = ["n" "v"];
       key = "<leader>de";
       action = "<cmd>lua require('dapui').eval()<cr>";
-      options = {
-        silent = true;
-        desc = "Eval";
-      };
+      options = { silent = true; desc = "Eval"; };
     }
   ];
 }

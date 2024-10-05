@@ -1,10 +1,10 @@
-pkgs: build: {
+{ pkgs, ... }: {
   imports = [
     ./lualine
     ./which-key
-    (import ./telescope pkgs build)
-    (import ./silicon.nix pkgs build)
-    (import ./grug-far.nix pkgs build)
+    ./silicon.nix
+    ./grug-far.nix
+    ./telescope.nix
   ];
 
   extraPlugins = with pkgs.vimPlugins; [
@@ -30,7 +30,7 @@ pkgs: build: {
         };
       };
       surround = {};
-      cursorword = {};
+      # cursorword = {};
     };
 
     nvim-colorizer = {
@@ -40,7 +40,6 @@ pkgs: build: {
 
     rest.enable = true;
     noice.enable = true;
-    notify.enable = true;
     neotest.enable = true;
     helpview.enable = true;
     undotree.enable = true;

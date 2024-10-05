@@ -1,4 +1,6 @@
 {
+  extraConfigLua = builtins.readFile ./hide_statusbar.lua;
+
   plugins.lualine = let
     colors = import ./colors.nix;
   in {
@@ -32,11 +34,19 @@
         lualine_z = [{}];
       };
 
+      inactive_sections = {
+        # these are to remove the defaults
+        lualine_a = [{}];
+        lualine_b = [{}];
+        lualine_c = [{}];
+        lualine_x = [{}];
+        lualine_y = [{}];
+        lualine_z = [{}];
+      };
+
       tabline = import ./tabline.nix;
     };
   };
-
-  extraConfigLua = "vim.o.laststatus = 0";
 
   keymaps = let
     buffers = num: let
@@ -46,9 +56,10 @@
         else num;
     in {
       key = "<M-${toString num}>";
-      mode = ["n" "i" "v" "s" "t" "o"];
+      mode = ["n" "i" "v"];
       options.desc = "Buffer ${toString is-ten}";
       action = "<cmd>LualineBuffersJump ${toString is-ten}<cr>";
     };
-  in (map buffers [1 2 3 4 5 6 7 8 9 0]);
+  in
+    map buffers [1 2 3 4 5 6 7 8 9 0];
 }

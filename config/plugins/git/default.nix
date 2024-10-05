@@ -1,8 +1,5 @@
-pkgs: build: {
-  imports = [ (import ./gh-actions.nix build) ];
-
+{ pkgs, ... }: {
   extraPackages = with pkgs; [delta lazygit];
-
   plugins = {
     lazygit.enable = true;
     # fugitive.enable = true;
@@ -14,4 +11,12 @@ pkgs: build: {
     };
     gitsigns = import ./gitsigns.nix;
   };
+
+  extraPlugins = let
+    builds = import ../builds.nix pkgs;
+  in [builds.gh-actions];
+
+  extraConfigLua = ''
+
+  '' + builtins.readFile ./gh-actions.lua;
 }

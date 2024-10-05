@@ -1,4 +1,4 @@
-pkgs: build: let
+{ pkgs, ... }: let
   theme = "Dracula";
   font = "JetBrainsMono Nerd Font=32;Noto Color Emoji=34";
 in {
@@ -9,16 +9,10 @@ in {
   ];
 
   extraPlugins = let
-    # LINK: https://github.com/michaelrommel/nvim-silicon
-    silicon = build
-      "michaelrommel"
-      "nvim-silicon"
-      "2024-08-31"
-      "9fe6001dc8cad4d9c53bcfc8649e3dc76ffa169c"
-      "1BeJSpcmZeuIZXrbrxMKvaQBZn2TtsjrFXk26w2In+E=";
-  in [silicon];
+    builds = import ../builds.nix pkgs;
+  in [builds.silicon];
 
-  extraConfigLua = ''
+  extraConfigLua = /*lua*/ ''
     require'nvim-silicon'.setup {
       font = '${font}',
       theme = '${theme}',

@@ -1,13 +1,11 @@
 colors: get-mode-color: [
   {
+    padding.left = 0;
     color.__raw = get-mode-color;
     __unkeyed-1.__raw = ''function() return '█' end'';
   }
 
-  {
-    color.fg = colors.pink;
-    __unkeyed-1 = "progress";
-  }
+  "tabs"
 
   # NOTE: I use gitmux
   # {

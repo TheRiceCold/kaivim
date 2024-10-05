@@ -1,23 +1,24 @@
-pkgs: build: {
-  imports = [
-    (import ./scrollEOF.nix build)
-    # (import ./window-picker.nix build)
-  ];
-
-  # extraPlugins = with pkgs.vimPlugins; [nvim-window-picker];
-
+{ pkgs, ... }: {
   plugins = {
     # nvim-autopairs = import ./autopairs.nix;
 
     mini.modules = {
-      ai = {};
       move = {};
       splitjoin = {};
       trailspace = {};
-      basics.mappings.basic = true;
     };
 
     twilight.enable = true;
     zen-mode.enable = true;
   };
+
+  extraPlugins = let
+    builds = import ../builds.nix pkgs;
+  in [builds.scrollEOF];
+
+  extraConfigLua = ''
+    require'scrollEOF'.setup{
+      disabled_filetypes = { 'minifiles' }
+    }
+  '';
 }

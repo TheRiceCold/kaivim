@@ -4,6 +4,7 @@ colors: get-mode-color: [
     shorting_target = 150;
     color.fg = colors.grey;
     __unkeyed-1 = "filename";
+    disabled_buftypes = ["terminal"];
   }
 
   {
@@ -39,10 +40,8 @@ colors: get-mode-color: [
       end
     '';
     icon = "LSP:";
-    color = {
-      fg = colors.magenta;
-      gui = "bold";
-    };
+    disabled_buftypes = ["terminal"];
+    color = { fg = colors.magenta; gui = "bold"; };
   }
 
   {
@@ -65,6 +64,11 @@ colors: get-mode-color: [
     padding.right = 1;
     color.fg = colors.violet;
     __unkeyed-1 = "gh-actions";
+  }
+
+  {
+    color.fg = colors.pink;
+    __unkeyed-1 = "progress";
   }
 
   {

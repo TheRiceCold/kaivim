@@ -6,7 +6,6 @@
   scrolloff = 8;
   number = true;
   shiftwidth = 2;
-  laststatus = 3;
   numberwidth = 4;
   showcmd = false;
   hlsearch = true;

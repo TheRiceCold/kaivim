@@ -1,4 +1,4 @@
-pkgs: {
+{ pkgs, ... }: {
   extraPlugins = with pkgs.vimPlugins; [flutter-tools-nvim];
 
   extraConfigLua = ''

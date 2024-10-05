@@ -1,13 +1,5 @@
-build: {
-  extraPlugins = let
-    table-nvim = build
-      "SCJangra"
-      "table-nvim"
-      "2024-09-27"
-      "c044fd37169eb10376962b0d0cec5f94d58ca626"
-      "se5bgBCiOcDR8QseFHnVspw7ZGMAzvXYS6Sta/ci9vk=";
-  in [table-nvim];
-
+{ pkgs, ... }:
+{
   plugins = {
     markdown-preview = {
       enable = true;
@@ -22,5 +14,12 @@ build: {
         pipe_table.border = ["╭" "┬" "╮" "├" "┼" "┤" "╰" "┴" "╯" "│" "─"];
       };
     };
+    mkdnflow = {
+      enable = true;
+    };
   };
+
+  extraPlugins = let
+    builds = import ../../builds.nix pkgs;
+  in [builds.table-nvim];
 }

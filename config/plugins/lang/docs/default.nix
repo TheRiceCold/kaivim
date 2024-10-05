@@ -1,10 +1,7 @@
-pkgs: build: {
+{
   imports = [
     ./latex.nix
-    (import ./typst.nix build)
-    (import ./markdown.nix build)
-    (import ./orgmode.nix pkgs build)
+    ./typst.nix
+    ./markdown.nix
   ];
-
-  extraPlugins = with pkgs.vimPlugins; [vim-table-mode];
 }
