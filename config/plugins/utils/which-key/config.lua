@@ -125,6 +125,7 @@ wk.add {
 	set_key.telescope('C', 'colorscheme'),
 
 	-- Extensions
+  set_key.cmd('fn', 'Noice telescope', 'Notifications'),
 	set_key.cmd('fe', 'Telescope emoji theme=ivy', 'Emoji'),
 	set_key.cmd('fy', 'Telescope glyph theme=ivy', 'Glyph'),
 	set_key.cmd('fh', function()
@@ -225,7 +226,7 @@ wk.add {
 	set_key.trouble('I', 'lsp_incoming_calls', 'Incoming calls'),
 	set_key.trouble('O', 'lsp_outgoing_calls', 'Outgoing calls'),
 	set_key.trouble('r', 'lsp_references', 'references'),
-	set_key.trouble('t', 'lsp_type_definitions', 'type definitions'),
+	set_key.trouble('T', 'lsp_type_definitions', 'type definitions'),
 }
 
 set_key.rest = function(key, action, desc)

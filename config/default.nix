@@ -5,14 +5,7 @@
     opts = import ./options.nix;
     globals.mapleader = " ";
 
-    keymaps = [
-      {
-        mode = "";
-        key = "<S-u>";
-        action = "<C-r>";
-        options.desc = "Redo";
-      }
-    ];
+    keymaps = import ./keymaps.nix;
 
     # Neovide config
     extraConfigLua = builtins.readFile ./neovide.lua;

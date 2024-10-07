@@ -10,7 +10,7 @@ pkgs: let
       };
     };
 in {
-  # INFO: Last update: Oct 20, 2024 | Sort latest->oldest
+  # INFO: Last update: Oct 07, 2024 | Sort latest->oldest
 
   # https://github.com/CWood-sdf/banana.nvim
   banana = build
@@ -75,6 +75,14 @@ in {
     "nvim-silicon"
     "9fe6001dc8cad4d9c53bcfc8649e3dc76ffa169c"
     "1BeJSpcmZeuIZXrbrxMKvaQBZn2TtsjrFXk26w2In+E=";
+
+  # https://github.com/b0o/incline.nvim
+  incline = build
+    "2024-05-17"
+    "b0o"
+    "incline.nvim"
+    "16fc9c073e3ea4175b66ad94375df6d73fc114c0"
+    "5DoIvIdAZV7ZgmQO2XmbM3G+nNn4tAumsShoN3rDGrs=";
 
   # https://github.com/Aasim-A/scrollEOF.nvim
   scrollEOF = build
