@@ -37,7 +37,7 @@
       cmdline = "[CMD]";
       nvim_lsp = "[LSP]";
       buffer = "[Buffer]";
-      luasnip = "[LuaSnip]";
+      luasnip = "[Snippet]";
     };
 
     show_labelDetails = true;

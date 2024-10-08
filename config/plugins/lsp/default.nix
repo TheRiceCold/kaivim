@@ -1,14 +1,7 @@
 {
-  imports = [./lint.nix];
+  imports = [./servers.nix ./lint.nix];
 
   plugins = {
-    lsp = {
-      enable = true;
-      enabledServers = [];
-      servers = import ./servers.nix;
-      keymaps.lspBuf.gd = "definition";
-    };
-
     # adds pictograms
     lspkind = import ./lspkind.nix;
 
