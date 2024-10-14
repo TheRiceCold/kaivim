@@ -5,7 +5,7 @@
       enable = true;
       settings = {
         auto_close = 0;
-        browser = "firefox";
+        page_title = "Markdown Preview";
       };
     };
     render-markdown = {
@@ -13,9 +13,6 @@
       settings = {
         pipe_table.border = ["╭" "┬" "╮" "├" "┼" "┤" "╰" "┴" "╯" "│" "─"];
       };
-    };
-    mkdnflow = {
-      enable = true;
     };
   };
 

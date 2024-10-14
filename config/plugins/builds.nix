@@ -52,6 +52,22 @@ in {
     "c044fd37169eb10376962b0d0cec5f94d58ca626"
     "se5bgBCiOcDR8QseFHnVspw7ZGMAzvXYS6Sta/ci9vk=";
 
+  # https://github.com/chipsenkbeil/org-roam.nvim
+  org-roam = build
+    "2024-09-24"
+    "chipsenkbeil"
+    "org-roam.nvim"
+    "17f85abf207ece51bd37c8f3490d8f7d2fa106d0"
+    "gONxa/CUXPgV+ucC+WkEyeH/lFAiTaQx8bEBq7g6HyY=";
+
+  # https://github.com/nvim-orgmode/org-bullets.nvim
+  org-bullets = build
+    "2024-09-02"
+    "nvim-orgmode"
+    "org-bullets.nvim"
+    "46ae687e22192fb806b5977d664ec98af9cf74f6"
+    "cRcO0TDY0v9c/H5vQ1v96WiEkIhJDZkPcw+P58XNL9w=";
+
   # https://github.com/topaxi/gh-actions.nvim
   gh-actions = build
     "2024-09-20"
@@ -91,6 +107,14 @@ in {
     "scrollEOF.nvim"
     "38fd5880021e90c15dc61fa325f714bd8077f0a6"
     "n36L6mtayKtXI/orwf0B72sFpgAKZ0HU4vv2UxKexvU=";
+
+  # https://github.com/00sapo/visual.nvim/
+  visual = build
+  "2023-10-27"
+  "00sapo"
+  "visual.nvim"
+  "5eeb220b86cac7ff7041daf565ccf45f296bd107"
+  "tcqNMrUwYjFJq4/JEKXCA/NRAnU0B9oYeh6KC6MhnQM=";
 
   # https://github.com/xiyaowong/telescope-emoji.nvim
   telescope-emoji = build
