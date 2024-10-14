@@ -47,19 +47,4 @@
       tabline = import ./tabline.nix;
     };
   };
-
-  keymaps = let
-    buffers = num: let
-      is-ten =
-        if (num == 0)
-        then 10
-        else num;
-    in {
-      key = "<M-${toString num}>";
-      mode = ["n" "i" "v"];
-      options.desc = "Buffer ${toString is-ten}";
-      action = "<cmd>LualineBuffersJump ${toString is-ten}<cr>";
-    };
-  in
-    map buffers [1 2 3 4 5 6 7 8 9 0];
 }

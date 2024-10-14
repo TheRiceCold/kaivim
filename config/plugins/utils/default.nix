@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   imports = [
     ./lualine
     ./which-key
@@ -7,10 +7,16 @@
     ./telescope.nix
   ];
 
-  extraPlugins = with pkgs.vimPlugins; [
-    harpoon2
-    range-highlight-nvim
-  ];
+  extraPlugins = let
+    builds = import ../builds.nix pkgs;
+  in
+    with pkgs.vimPlugins; [
+      builds.incline
+
+      harpoon2
+      vim-hexokinase
+      range-highlight-nvim
+    ];
 
   plugins = {
     alpha = import ./alpha.nix;
@@ -33,15 +39,17 @@
       # cursorword = {};
     };
 
-    nvim-colorizer = {
-      enable = true;
-      userDefaultOptions.names = false;
-    };
-
     rest.enable = true;
     noice.enable = true;
     neotest.enable = true;
     helpview.enable = true;
     undotree.enable = true;
+    tmux-navigator.enable = true;
   };
+
+  extraConfigLua = ''
+    require'incline'.setup {
+
+    }
+  '';
 }

@@ -15,20 +15,17 @@ local set_key = {
 }
 
 wk.add {
-	set_key.cmd('e', function()
+	set_key.cmd('e', files.open, 'Files'),
+	set_key.cmd('E', function()
 		files.open(vim.bo.buftype ~= 'nofile' and vim.api.nvim_buf_get_name(0) or nil)
-	end, 'Explorer'),
-	set_key.cmd('E', files.open, 'Explorer (Root)'),
+	end, 'Files at current buffer\'s directory'),
 
 	set_key.cmd('w', 'w!', 'Write buffer'),
 	set_key.cmd('d', 'bdelete', 'Delete buffer'),
-	set_key.cmd('qq', 'qa', 'Quit all', true),
+	set_key.cmd('Q', 'qa', 'Quit all', true),
+  set_key.cmd('q', 'quit', 'Quit window', true),
 }
 
---- GIT Keys ---
-set_key.lazygit = function(key, action, desc)
-	return set_key.cmd('g' .. key, 'LazyGit' .. (action or ''), desc or 'LazyGit')
-end
 set_key.git_signs = function(key, action, desc)
 	return set_key.cmd('g' .. key, function()
 		gitsigns[action]()
@@ -44,11 +41,6 @@ wk.add {
 	set_key.git_signs('n', 'toggle_numhl', 'Toggle numhl'),
 	set_key.git_signs('L', 'toggle_linehl', 'Toggle linehl'),
 	set_key.git_signs('d', 'toggle_deleted', 'Toggle deleted'),
-
-	-- LazyGit --
-	set_key.lazygit 'g',
-	set_key.lazygit('C', 'Filter', 'Project Commits'),
-	set_key.lazygit('B', 'FilterCurrentFile', 'Buffer Commits'),
 
 	set_key.cmd('gH', 'GhActions', 'Github Actions'),
 	set_key.cmd('gm', 'GitMessenger', 'Show Message'),
@@ -85,6 +77,7 @@ wk.add {
 	set_key.lsp('s', 'Start'),
 	set_key.lsp('x', 'Stop'),
 	set_key.cmd('lf', require('conform').format, 'Format'),
+	set_key.cmd('lF', 'ConformInfo', 'Format'),
 
 	set_key.lsp_saga('r', 'rename'),
 	set_key.lsp_saga('o', 'outline'),
@@ -238,6 +231,11 @@ set_key.latex = function(key, action)
 end
 
 wk.add {
+	{ '<leader>o', group = 'Orgmode' },
+	{ '<leader>oi', group = 'Insert' },
+	{ '<leader>ox', group = 'Clocking' },
+	{ '<leader>ol', group = 'Link' },
+
 	{ '<leader>m', group = 'Markdown' },
 	set_key.cmd('mr', 'RenderMarkdown toggle', 'Toggle render'),
 	set_key.cmd('mv', 'MarkdownPreviewToggle', 'Browser preview'),
@@ -262,11 +260,11 @@ wk.add {
 	set_key.latex('r', 'Reload'),
 	set_key.latex('c', 'Compile'),
 
-	set_key.cmd('C', 'ColorizerToggle', 'Colorizer'),
 	set_key.cmd('r', require('grug-far').open, 'Replace'),
+  set_key.cmd('z', function()
+    vim.wo.number = false
+    require('zen-mode').toggle()
+  end, 'Zen Mode'),
 	set_key.cmd('u', 'UndotreeToggle', 'Undo Tree'),
-	set_key.cmd('z', function()
-		vim.wo.number = false
-		require('zen-mode').toggle()
-	end, 'Zen Mode'),
+  set_key.cmd('H', 'HexokinaseToggle', 'Hexokinase'),
 }
