@@ -1,13 +1,10 @@
 {
-  imports = [ ./plugins ./colorschemes ];
+  imports = [./plugins ./colorschemes];
 
   config = {
-    opts = import ./options.nix;
     globals.mapleader = " ";
-
+    opts = import ./options.nix;
     keymaps = import ./keymaps.nix;
-
-    # Neovide config
-    extraConfigLua = builtins.readFile ./neovide.lua;
+    extraConfigLua =  builtins.readFile ./config.lua;
   };
 }

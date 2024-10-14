@@ -1,7 +1,8 @@
-local g = vim.g
+vim.cmd [[ autocmd TermOpen * setlocal nonumber norelativenumber ]]
 
+--- Neovide ---
+local g = vim.g
 if g.neovide then
-	-- Neovide options
 	g.neovide_refresh_rate = 60
 	g.neovide_transparency = 0.8
 	g.neovide_fullscreen = false
@@ -15,7 +16,4 @@ if g.neovide then
 	g.neovide_cursor_vfx_particle_speed = 10.0
 	g.neovide_cursor_vfx_particle_density = 7.0
 	g.neovide_cursor_vfx_particle_lifetime = 1.5
-
-	vim.cmd [[colorscheme catppuccin-mocha]]
-	vim.o.guifont = 'JetBrainsMono Nerd Font:h13'
 end

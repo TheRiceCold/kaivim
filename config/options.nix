@@ -33,6 +33,7 @@
   sidescrolloff = 8;
   termguicolors = true;
   splitkeep = "screen";
+  relativenumber = true;
   fileencoding = "utf-8";
   guifont = "monospace:h17";
   clipboard = "unnamedplus";
