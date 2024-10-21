@@ -5,8 +5,6 @@ colors: get-mode-color: [
     __unkeyed-1.__raw = ''function() return '█' end'';
   }
 
-  "tabs"
-
   # NOTE: I use gitmux
   # {
   #   icon = "";

@@ -86,17 +86,16 @@ wk.add {
 
 set_key.telescope = function(key, action, desc, opts)
 	local builtin = require 'telescope.builtin'
-	local themes = require 'telescope.themes'
 
 	return set_key.cmd('f' .. key, function()
-		builtin[action](themes.get_ivy(opts or {}))
+		builtin[action](opts or {})
 	end, desc or action)
 end
 
 set_key.todo_telescope = function(key, keyword, desc)
 	return set_key.cmd(
 		'ft' .. key,
-		'TodoTelescope initial_mode=normal theme=ivy keywords=' .. (keyword or ''),
+		'TodoTelescope initial_mode=normal keywords=' .. (keyword or ''),
 		desc or keyword
 	)
 end
@@ -105,6 +104,7 @@ end
 wk.add {
 	{ '<leader>f', group = 'Find' },
 	set_key.telescope('f', 'find_files', 'Files'),
+  set_key.telescope('p', 'projects', 'Projects'),
 	set_key.telescope('o', 'old_files', 'Old files'),
 	set_key.telescope('g', 'git_files', 'Git Files'),
 	set_key.telescope('a', 'find_files', 'All Files', { follow = true, hidden = true }),
@@ -118,9 +118,9 @@ wk.add {
 	set_key.telescope('C', 'colorscheme'),
 
 	-- Extensions
-  set_key.cmd('fn', 'Noice telescope', 'Notifications'),
 	set_key.cmd('fe', 'Telescope emoji theme=ivy', 'Emoji'),
 	set_key.cmd('fy', 'Telescope glyph theme=ivy', 'Glyph'),
+  set_key.cmd('fn', 'Telescope noice theme=ivy', 'Notifications'),
 	set_key.cmd('fh', function()
 		local conf = require('telescope.config').values
 		local file_paths = {}

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./lualine
     ./which-key
@@ -24,7 +24,6 @@
 
     mini.modules = {
       files = {
-        content = {};
         mappings = {
           go_in = "<cr>";
           go_out = "-";
@@ -34,6 +33,7 @@
           preview = true;
           width_preview = 40;
         };
+        options.use_as_default_explorer = false;
       };
       surround = {};
       # cursorword = {};

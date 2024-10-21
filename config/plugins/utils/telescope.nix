@@ -1,6 +1,8 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   extraPackages = [pkgs.ripgrep];
-  plugins.telescope = {
+  plugins.telescope = let
+    theme = "ivy";
+  in {
     enable = true;
     settings = {
       defaults = {
@@ -29,6 +31,20 @@
           };
         };
       };
+
+      pickers = {
+        git_files.theme = theme;
+        live_grep.theme = theme;
+        find_files.theme = theme;
+        grep_string.theme = theme;
+      };
+
+      extensions = {
+        project = {
+          inherit theme;
+          base_dirs = ["~/repos/projects"];
+        };
+      };
     };
   };
 
@@ -36,14 +52,18 @@
   extraPlugins = let
     builds = import ../builds.nix pkgs;
   in
-    with builds; [
+    with builds;
+    with pkgs.vimPlugins; [
       telescope-emoji
       telescope-glyph
+      telescope-project-nvim
     ];
 
   extraConfigLua = ''
     local telescope = require'telescope'
+
     telescope.load_extension('emoji')
     telescope.load_extension('glyph')
+    telescope.load_extension('project')
   '';
 }
