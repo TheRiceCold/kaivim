@@ -49,6 +49,12 @@
           type = "button";
         }
         {
+          val = "Open a project";
+          on_press.__raw = cmd "Telescope project";
+          opts.shortcut = "p";
+          type = "button";
+        }
+        {
           type = "button";
           opts.shortcut = "q";
           on_press.__raw = cmd "quit";

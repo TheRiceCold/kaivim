@@ -4,7 +4,14 @@
     ./which-key
     ./silicon.nix
     ./grug-far.nix
+
+    # ./fzf-lua.nix
     ./telescope.nix
+    /* INFO: fzf-Lua is better for performance
+      but telescope has better extensions(like project)
+      that fits better for my productive setup and the
+      difference in performance is unnoticeable anyway
+    */
   ];
 
   extraPlugins = let
@@ -48,8 +55,6 @@
   };
 
   extraConfigLua = ''
-    require'incline'.setup {
-
-    }
+    require'incline'.setup { }
   '';
 }

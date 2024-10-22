@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  extraPackages = [pkgs.ripgrep];
+{ pkgs, ... }: {
+  extraPackages = with pkgs; [ripgrep chafa];
   plugins.telescope = let
     theme = "ivy";
   in {
@@ -42,7 +42,17 @@
       extensions = {
         project = {
           inherit theme;
-          base_dirs = ["~/repos/projects"];
+          base_dirs = ["~/repos"];
+        };
+        fzf-native = {
+          fuzzy = true;
+          override_generic_sorter = true;
+          override_file_sorter = true;
+          case_mode = "smart_case";
+        };
+        media_files = {
+          find_cmd = "rg";
+          filetypes = ["png" "jpg" "jpeg" "svg" "pdf"];
         };
       };
     };
@@ -56,7 +66,10 @@
     with pkgs.vimPlugins; [
       telescope-emoji
       telescope-glyph
+
       telescope-project-nvim
+      telescope-media-files-nvim
+      telescope-fzf-native-nvim
     ];
 
   extraConfigLua = ''
@@ -65,5 +78,6 @@
     telescope.load_extension('emoji')
     telescope.load_extension('glyph')
     telescope.load_extension('project')
+    telescope.load_extension('media_files')
   '';
 }

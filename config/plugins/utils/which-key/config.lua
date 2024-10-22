@@ -84,6 +84,14 @@ wk.add {
 	set_key.lsp_saga('a', 'code_action', 'Code Action'),
 }
 
+-- set_key.fzf = function(key, action, desc)
+--   local fzf = require'fzf-lua'
+--
+-- 	return set_key.cmd('f' .. key, function()
+--     fzf[action]()
+-- 	end, desc or action)
+-- end
+
 set_key.telescope = function(key, action, desc, opts)
 	local builtin = require 'telescope.builtin'
 
@@ -100,27 +108,32 @@ set_key.todo_telescope = function(key, keyword, desc)
 	)
 end
 
---- FIND(telescope) keys ---
 wk.add {
-	{ '<leader>f', group = 'Find' },
-	set_key.telescope('f', 'find_files', 'Files'),
+	{ '<leader>f', group = 'FZF (Telescope)' },
+
+  set_key.cmd('f', 'FZF', 'FZF'),
+	set_key.telescope('F', 'find_files', 'Files'),
   set_key.telescope('p', 'projects', 'Projects'),
 	set_key.telescope('o', 'old_files', 'Old files'),
-	set_key.telescope('g', 'git_files', 'Git Files'),
-	set_key.telescope('a', 'find_files', 'All Files', { follow = true, hidden = true }),
-	set_key.telescope('l', 'live_grep', 'Live Grep'),
+	set_key.telescope('g', 'git_files', 'Git files'),
+	set_key.telescope('a', 'find_files', 'All files', { follow = true, hidden = true }),
+	set_key.telescope('l', 'live_grep', 'Live grep'),
+	set_key.telescope('s', 'spell_suggest', 'Spell suggest'),
+  set_key.telescope('r', 'resume', 'Resume'),
 
-	set_key.telescope('m', 'marks'),
+	set_key.telescope('M', 'marks'),
 	set_key.telescope('b', 'buffers', 'buffers', { initial_mode = 'normal' }),
 	set_key.telescope('k', 'keymaps'),
 	set_key.telescope('j', 'jumplist', 'Jumplist', { initial_mode = 'normal' }),
 	set_key.telescope('c', 'commands'),
 	set_key.telescope('C', 'colorscheme'),
 
-	-- Extensions
-	set_key.cmd('fe', 'Telescope emoji theme=ivy', 'Emoji'),
-	set_key.cmd('fy', 'Telescope glyph theme=ivy', 'Glyph'),
+	-- Extensions ---
+  set_key.cmd('fp', 'Telescope project', 'Projects'),
+  set_key.cmd('fe', 'Telescope emoji theme=ivy', 'Emoji'),
+  set_key.cmd('fy', 'Telescope glyph theme=ivy', 'Glyph'),
   set_key.cmd('fn', 'Telescope noice theme=ivy', 'Notifications'),
+  set_key.cmd('fm', 'Telescope media_files theme=ivy', 'Media files'),
 	set_key.cmd('fh', function()
 		local conf = require('telescope.config').values
 		local file_paths = {}
@@ -138,17 +151,11 @@ wk.add {
 			:find()
 	end, 'Harpoon'),
 
-	-- Git --
-	{ '<leader>fG', group = 'Git' },
-	set_key.telescope('Gs', 'git_status', 'Status'),
-	set_key.telescope('Gc', 'git_commits', 'Commits', { initial_mode = 'normal' }),
-	set_key.telescope('Gb', 'git_bcommits', 'Buffer commits', { initial_mode = 'normal' }),
-	set_key.telescope('GB', 'git_branches', 'Branches', { initial_mode = 'normal' }),
-
 	-- LSP --
 	{ '<leader>fL', group = 'Lsp' },
 	set_key.telescope('Lr', 'lsp_references', 'References', { initial_mode = 'normal' }),
 	set_key.telescope('Ld', 'lsp_definitions', 'Definitions', { initial_mode = 'normal' }),
+	set_key.telescope('Lt', 'lsp_type_definitions', 'Type declarations', { initial_mode = 'normal' }),
 	set_key.telescope('Li', 'lsp_implementations', 'Implementations', { initial_mode = 'normal' }),
 
 	-- Todo Comments ---
@@ -167,6 +174,55 @@ wk.add {
 	set_key.todo_telescope('o', 'OPTIMIZE'),
 	set_key.todo_telescope('r', 'REFACTOR'),
 }
+
+--- FZF keys ---
+-- set_key.fzf = function(key, action, desc)
+--   local fzf = require'telscope'
+--
+-- 	return set_key.cmd('f' .. key, function()
+--     fzf[action]()
+-- 	end, desc or action)
+-- end
+
+-- wk.add {
+-- 	{ '<leader>f', group = 'FZF' },
+--   set_key.cmd('f', 'FZF', 'FZF'),
+--   set_key.fzf('F', 'files', 'Files'),
+--   set_key.fzf('o', 'oldfiles', 'Old files'),
+--   set_key.fzf('l', 'live_grep', 'Live grep'),
+--   set_key.fzf('b', 'buffers', 'Buffers'),
+--   set_key.fzf('k', 'keymaps', 'Keymaps'),
+--   set_key.fzf('j', 'jumps', 'Jumps'),
+--   set_key.fzf('c', 'commands', 'Commands'),
+--   set_key.fzf('C', 'colorschemes', 'Colorschemes'),
+--   set_key.fzf('t', 'tabs', 'Tabs'),
+--   set_key.fzf('T', 'treesitter', 'Treesitter'),
+--   set_key.fzf('x', 'tmux_buffers', 'Tmux buffers'),
+--   set_key.fzf('s', 'spell_suggest', 'Spelling suggest'),
+--
+-- 	{ '<leader>fg', group = 'Git' },
+--   set_key.fzf('gg', 'git_files', 'Files'),
+--   set_key.fzf('gs', 'git_status', 'Status'),
+--   set_key.fzf('gb', 'git_bcommits', 'Buffer commits'),
+--   set_key.fzf('gB', 'git_branches', 'Branches'),
+--
+-- 	{ '<leader>fL', group = 'LSP' },
+--   set_key.fzf('Lr', 'lsp_references', 'References'),
+--   set_key.fzf('Ld', 'lsp_definitions', 'Definitions'),
+--   set_key.fzf('LD', 'lsp_declarations', 'Declarations'),
+--   set_key.fzf('Lt', 'lsp_typedefs', 'Type definitions'),
+--   set_key.fzf('Li', 'lsp_implementations', 'Implementations'),
+--   set_key.fzf('Ls', 'lsp_document_symbols', 'Symbols'),
+--   set_key.fzf('LS', 'lsp_workspace_symbols', 'Workspace symbols'),
+--   -- set_key.fzf('LS', 'lsp_live_workspace_symbols', 'Live workspace symbols'),
+--   set_key.fzf('LI', 'lsp_incoming_calls', 'Incoming calls'),
+--   set_key.fzf('Lc', 'lsp_code_actions', 'Code actions'),
+--   set_key.fzf('Lf', 'lsp_finder', 'Finder'),
+--   set_key.fzf('Lo', 'lsp_outgoing_calls', 'Outgoing calls'),
+--   -- set_key.fzf('LD', 'diagnostics_document', 'Diagnostics document'),
+--   -- set_key.fzf('LD', 'diagnostics_workspace', 'Diagnostics workspace'),
+-- }
+
 
 --- HARPOON keys ---
 wk.add {
