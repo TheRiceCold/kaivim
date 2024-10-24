@@ -70,10 +70,4 @@ colors: get-mode-color: [
     color.fg = colors.pink;
     __unkeyed-1 = "progress";
   }
-
-  {
-    padding.left = 1;
-    color.__raw = get-mode-color;
-    __unkeyed-1.__raw = ''function() return '█' end'';
-  }
 ]

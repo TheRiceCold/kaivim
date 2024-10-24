@@ -18,19 +18,19 @@
         window = {
           completion = {
             scrollbar = false;
-            border = "rounded";
+            border = "single";
           };
           documentation = {
             scrollbar = false;
-            border = "rounded";
+            border = "single";
           };
         };
 
-        snippet.expand = ''
-          function(args)
-            require'luasnip'.lsp_expand(args.body)
-          end
-        '';
+        snippet.expand = /*lua*/''
+            function(args)
+              require'luasnip'.lsp_expand(args.body)
+            end
+          '';
 
         formatting = {
           expandable_indicator = true;
@@ -54,4 +54,8 @@
     cmp-cmdline.enable = true;
     cmp_luasnip.enable = true;
   };
+
+  extraConfigLua = ''
+    vim.cmd [[ highlight CmpBorder guifg=#7b8496 ]]
+  '';
 }

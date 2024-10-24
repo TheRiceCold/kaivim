@@ -1,16 +1,15 @@
 colors: get-mode-color: [
   {
-    padding.left = 0;
+    __unkeyed-1 = "mode";
     color.__raw = get-mode-color;
-    __unkeyed-1.__raw = ''function() return '█' end'';
   }
 
-  # NOTE: I use gitmux
-  # {
-  #   icon = "";
-  #   __unkeyed-1 = "branch";
-  #   color = { fg = colors.blue; gui = "bold"; };
-  # }
+  {
+    icon = "";
+    __unkeyed-1 = "branch";
+    color = { fg = colors.violet; gui = "bold"; };
+  }
+
 
   {
     mode = 2;

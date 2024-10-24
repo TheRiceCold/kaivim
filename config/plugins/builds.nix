@@ -1,5 +1,5 @@
 pkgs: let
-  build =  version: owner: name: rev: hash:
+  build = version: owner: name: rev: hash:
     pkgs.vimUtils.buildVimPlugin {
       pname = name;
       inherit version;
@@ -11,6 +11,13 @@ pkgs: let
     };
 in {
   # INFO: Last update: Oct 07, 2024 | Sort latest->oldest
+  # https://github.com/TheRiceCold/fzf-lua-projects.nvim
+  fzf-lua-projectile = build
+    "2024-10-23"
+    "TheRiceCold"
+    "fzf-lua-projectile"
+    "f18f9a1d3c8b2864c90b1e05430ea6d0c1519446"
+    "PqMmx3fpbjqGl9EjenGozySgAHCV/AUv6DfxycV44fg=";
 
   # https://github.com/CWood-sdf/banana.nvim
   banana = build
@@ -110,11 +117,11 @@ in {
 
   # https://github.com/00sapo/visual.nvim/
   visual = build
-  "2023-10-27"
-  "00sapo"
-  "visual.nvim"
-  "5eeb220b86cac7ff7041daf565ccf45f296bd107"
-  "tcqNMrUwYjFJq4/JEKXCA/NRAnU0B9oYeh6KC6MhnQM=";
+    "2023-10-27"
+    "00sapo"
+    "visual.nvim"
+    "5eeb220b86cac7ff7041daf565ccf45f296bd107"
+    "tcqNMrUwYjFJq4/JEKXCA/NRAnU0B9oYeh6KC6MhnQM=";
 
   # https://github.com/xiyaowong/telescope-emoji.nvim
   telescope-emoji = build

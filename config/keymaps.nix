@@ -6,7 +6,6 @@ let
   };
   window-jump = key: {
     key = "<c-${key}>";
-    mode = ["n" "i" "t"];
     action = "<c-w>${key}";
   };
 in [

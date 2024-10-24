@@ -2,59 +2,26 @@
   imports = [
     ./lualine
     ./which-key
+    ./mini-files
     ./silicon.nix
     ./grug-far.nix
 
-    # ./fzf-lua.nix
-    ./telescope.nix
-    /* INFO: fzf-Lua is better for performance
-      but telescope has better extensions(like project)
-      that fits better for my productive setup and the
-      difference in performance is unnoticeable anyway
-    */
+    ./fzf-lua.nix
   ];
 
   extraPlugins = let
     builds = import ../builds.nix pkgs;
-  in
-    with pkgs.vimPlugins; [
-      builds.incline
-
-      harpoon2
-      vim-hexokinase
-      range-highlight-nvim
-    ];
+  in with builds; with pkgs.vimPlugins; [ harpoon2 ];
 
   plugins = {
     alpha = import ./alpha.nix;
     todo-comments = import ./todo-comments.nix;
 
-    mini.modules = {
-      files = {
-        mappings = {
-          go_in = "<cr>";
-          go_out = "-";
-          show_help = "?";
-        };
-        windows = {
-          preview = true;
-          width_preview = 40;
-        };
-        options.use_as_default_explorer = false;
-      };
-      surround = {};
-      # cursorword = {};
-    };
-
     rest.enable = true;
-    noice.enable = true;
-    neotest.enable = true;
-    helpview.enable = true;
+    # neotest.enable = true;
     undotree.enable = true;
-    tmux-navigator.enable = true;
+    helpview.enable = true;
+    # tmux-navigator.enable = true;
+    toggleterm = import ./toggleterm.nix;
   };
-
-  extraConfigLua = ''
-    require'incline'.setup { }
-  '';
 }

@@ -11,6 +11,7 @@
     ./editing
     ./treesitter
     ./formatting
+    ./decoration
   ];
 
   plugins.mini.enable = true;

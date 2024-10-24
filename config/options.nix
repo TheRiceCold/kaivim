@@ -9,7 +9,7 @@
   breakindent = true; # Indent wrapped lines to match line start
   cursorline = false; # Highlight current line
   linebreak = true; # Wrap long lines at 'breakat' (if 'wrap' is set)
-  number = true; # Show line numbers
+  number = false; # Show line numbers
 
   # Editing
   ignorecase = true; # ignore case when searching (use '\C' to force not doing that)
@@ -33,12 +33,5 @@
   sidescrolloff = 8;
   termguicolors = true;
   splitkeep = "screen";
-  relativenumber = true;
   fileencoding = "utf-8";
-  guifont = "monospace:h17";
-  clipboard = "unnamedplus";
-
-  # Org mode
-  conceallevel = 2;
-  concealcursor = "nc";
 }

@@ -1,8 +1,5 @@
 {
-  imports = [
-    ./cmp.nix
-    # (import ./chainsaw.nix build)
-  ];
+  imports = [ ./cmp.nix ];
 
   plugins = {
     emmet.enable = true;

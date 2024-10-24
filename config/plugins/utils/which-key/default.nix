@@ -4,7 +4,7 @@
     settings = {
       preset = "helix"; # "classic" | "modern" | "helix"
       sort = ["manual"];
-      win.border = "none";
+      win.border = "single";
       icons.mappings = false;
     };
   };
