@@ -1,20 +1,20 @@
-{
+{ pkgs, ... }: {
   plugins = {
     fugitive.enable = true;
     diffview.enable = true;
     gitmessenger = {
       enable = true;
-      includeDiff = "current";
-      noDefaultMappings = true;
+      settings = {
+        include_diff = "current";
+        no_default_mappings = true;
+      };
     };
     gitsigns = import ./gitsigns.nix;
   };
 
   # extraPlugins = let
   #   builds = import ../builds.nix pkgs;
-  # in [builds.gh-actions];
-  #
-  # extraConfigLua = ''
-  #
-  # '' + builtins.readFile ./gh-actions.lua;
+  # in [builds.pipeline];
+
+  # extraConfigLua = builtins.readFile ./pipeline.lua;
 }

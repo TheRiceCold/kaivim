@@ -2,7 +2,7 @@
 {
   extraPlugins = let
     builds = import ../../builds.nix pkgs;
-  in [builds.typst-preview];
+  in [pkgs.vimPlugins.typst-preview-nvim];
 
   extraConfigLua = ''
     require'typst-preview'.setup {

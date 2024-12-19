@@ -1,8 +1,5 @@
 { pkgs, ... }: {
-  extraPlugins = let
-    builds = import ../builds.nix pkgs;
-  in [builds.grug-far];
-  # extraPlugins = [pkgs.vimPlugins.grug-far];
+  extraPlugins = [ pkgs.vimPlugins.grug-far-nvim ];
 
   extraConfigLua = ''
     require'grug-far'.setup {

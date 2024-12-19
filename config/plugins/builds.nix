@@ -10,7 +10,55 @@ pkgs: let
       };
     };
 in {
-  # INFO: Last update: Oct 07, 2024 | Sort latest->oldest
+  # INFO: Last update: Dec 19, 2024 | Sort latest->oldest
+  # https://github.com/CWood-sdf/banana.nvim
+  banana = build
+    "2024-12-19"
+    "CWood-sdf"
+    "banana.nvim"
+    "2178260de647b48b375663b945af768744ca7061"
+    "pNF/7+ONaQAca+oErUBJ9sGmYsDP7+0/6dk7OEMIe9Y=";
+
+  # https://github.com/chrisgrieser/nvim-chainsaw
+  chainsaw = build
+    "2024-12-18"
+    "chrisgrieser"
+    "nvim-chainsaw"
+    "da7b06461641fa6d7f0ffdd7c1cfa100b0c54728"
+    "TaEwkKEqgbpB4IcTFzfFLK65bblOBZ/djjTCg3lmpRk=";
+
+  # https://github.com/chomosuke/typst-preview.nvim
+  typst-preview = build
+    "2024-12-16"
+    "chomosuke"
+    "typst-preview.nvim"
+    "23db1bd5a32ff0b346817ed72e615c6419b11f48"    
+    "uTVE5KgAd9DAYptnqvos5dTjdURlpffj1LW9o/6qkso=";
+
+  # https://github.com/MagicDuck/grug-far.nvim
+  grug-far = build
+    "2024-12-14"
+    "MagicDuck"
+    "grug-far.nvim"
+    "11d0fbd6fff6f4e394af95319deeaab4ef88ce97"
+    "DkVRoxrD/9nlNORGq46CAQvIWjyga+TRvZ74uFKIq8I=";
+
+  # https://github.com/topaxi/pipeline.nvim
+  pipeline = build
+    "2024-12-12"
+    "topaxi"
+    "pipeline.nvim"
+    "805d918b0ff0811611a40eaa7a662600900044e8"
+    "R360qmXENRguzDzP3I7+vMRZ6aCeJm5YcdV51WfRDOQ=";
+
+  # https://github.com/chipsenkbeil/org-roam.nvim
+  org-roam = build
+    "2024-11-17"
+    "chipsenkbeil"
+    "org-roam.nvim"
+    "59da7daa2b218063936d2fc6363c1eb0667e64f2"
+    "R+5vbvOMVlLfPx5xmmx2cG0p+FhO3gFBpVZFvVwJDfM=";
+
   # https://github.com/TheRiceCold/fzf-lua-projects.nvim
   fzf-lua-projectile = build
     "2024-10-23"
@@ -19,37 +67,13 @@ in {
     "f18f9a1d3c8b2864c90b1e05430ea6d0c1519446"
     "PqMmx3fpbjqGl9EjenGozySgAHCV/AUv6DfxycV44fg=";
 
-  # https://github.com/CWood-sdf/banana.nvim
-  banana = build
-    "2024-10-01"
-    "CWood-sdf"
-    "banana.nvim"
-    "38df71fce096c035386927d89d3fc9894d3c3d54"
-    "oB1U4czlOg6NA3bO0U0M7DMtx/jaztAFFqLJz4Wi5hc=";
-
-  # https://github.com/MagicDuck/grug-far.nvim
-  grug-far = build
-    "2024-09-30"
-    "MagicDuck"
-    "grug-far.nvim"
-    "b7c2b28e49d55ff71cd9bb3ad19a2021316510d8"
-    "qDbRn6abSbQDz6en9aC7dNZSUbeag6HrPwAW4oL6uzM=";
-
   # https://github.com/razak17/tailwind-fold.nvim
   tailwind-fold = build
-    "2024-09-30"
+    "2024-10-18"
     "razak17"
     "tailwind-fold.nvim"
-    "5544fa59307e4ce5ad3e07ef3ddb231775dc5cda"
-    "+TNZB6Hm0EOkFDJtmI46RtH6h/e83qgwHAw49ayGn/I=";
-
-  # https://github.com/chomosuke/typst-preview.nvim
-  typst-preview = build
-    "2024-09-29"
-    "chomosuke"
-    "typst-preview.nvim"
-    "0354cc1a7a5174a2e69cdc21c4db9a3ee18bb20a"
-    "n0TfcXJLlRXdS6S9dwYHN688IipVSDLVXEqyYs+ROG8=";
+    "30b8c04eec28628fbe554fb4f3a26984c4455176"
+    "tfou9Qv7i+o6g81tcp6s3FAVJ/4I3BsTosYtboyGry8=";
 
   # https://github.com/SCJangra/ttable-nvim
   table-nvim = build
@@ -59,14 +83,6 @@ in {
     "c044fd37169eb10376962b0d0cec5f94d58ca626"
     "se5bgBCiOcDR8QseFHnVspw7ZGMAzvXYS6Sta/ci9vk=";
 
-  # https://github.com/chipsenkbeil/org-roam.nvim
-  org-roam = build
-    "2024-09-24"
-    "chipsenkbeil"
-    "org-roam.nvim"
-    "17f85abf207ece51bd37c8f3490d8f7d2fa106d0"
-    "gONxa/CUXPgV+ucC+WkEyeH/lFAiTaQx8bEBq7g6HyY=";
-
   # https://github.com/nvim-orgmode/org-bullets.nvim
   org-bullets = build
     "2024-09-02"
@@ -74,22 +90,6 @@ in {
     "org-bullets.nvim"
     "46ae687e22192fb806b5977d664ec98af9cf74f6"
     "cRcO0TDY0v9c/H5vQ1v96WiEkIhJDZkPcw+P58XNL9w=";
-
-  # https://github.com/topaxi/gh-actions.nvim
-  gh-actions = build
-    "2024-09-20"
-    "topaxi"
-    "gh-actions.nvim"
-    "37be09dfe57531ea8a30143097d7340137092145"
-    "S00YM2ULmYiRzVhiGat1mySmYrja8O9E9lVDbUSb/rA=";
-
-  # https://github.com/chrisgrieser/nvim-chainsaw
-  chainsaw = build
-    "2024-09-19"
-    "chrisgrieser"
-    "nvim-chainsaw"
-    "2af4925afab2591bccb4118475dabfee49744311"
-    "jgTLvTY2E99qYScQ1ONgc6eBDJ1fNTPG8qCk2yq2BbM=";
 
   # https://github.com/michaelrommel/nvim-silicon
   silicon = build
@@ -114,28 +114,4 @@ in {
     "scrollEOF.nvim"
     "38fd5880021e90c15dc61fa325f714bd8077f0a6"
     "n36L6mtayKtXI/orwf0B72sFpgAKZ0HU4vv2UxKexvU=";
-
-  # https://github.com/00sapo/visual.nvim/
-  visual = build
-    "2023-10-27"
-    "00sapo"
-    "visual.nvim"
-    "5eeb220b86cac7ff7041daf565ccf45f296bd107"
-    "tcqNMrUwYjFJq4/JEKXCA/NRAnU0B9oYeh6KC6MhnQM=";
-
-  # https://github.com/xiyaowong/telescope-emoji.nvim
-  telescope-emoji = build
-    "2022-12-08"
-    "xiyaowong"
-    "telescope-emoji.nvim"
-    "86248d97be84a1ce83f0541500ef9edc99ea2aa1"
-    "8V3MTporANLtZkH0RuLviWlgMmR6fay0WmZ3ZOQzpKI=";
-
-  # https://github.com/alduraibi/telescope-glyph.nvim
-  telescope-glyph = build
-    "2022-08-22"
-    "alduraibi"
-    "telescope-glyph.nvim"
-    "f63f01e129e71cc25b79637610674bbf0be5ce9d"
-    "6H4afMXtaZn066oBq3z8vvR7WH7WhqZkvziyOXlsNVg=";
 }

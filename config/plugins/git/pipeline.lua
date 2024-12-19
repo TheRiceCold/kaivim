@@ -1,5 +1,5 @@
 -- NOTE: requires nui.nvim, which is installed along with noice
-require('gh-actions').setup {
+require('pipeline').setup {
 	icons = {
 		workflow_dispatch = '⚡️',
 		conclusion = {

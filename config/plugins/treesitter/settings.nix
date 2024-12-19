@@ -59,9 +59,6 @@
     "java"
     "ruby"
 
-    "gdscript"
-    "gdshader"
-
     "tmux"
     "hyprlang"
   ];

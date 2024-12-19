@@ -101,8 +101,7 @@ end
 
 wk.add {
 	{ '<leader>f', group = 'FZF' },
-	set_key.cmd('f', 'FZF', 'FZF'),
-	set_key.fzf('F', 'files', 'Files'),
+	set_key.fzf('f', 'files', 'Files'),
 	set_key.fzf('o', 'oldfiles', 'Old files'),
 	set_key.fzf('l', 'live_grep', 'Live grep'),
 	set_key.fzf('b', 'buffers', 'Buffers'),
@@ -216,7 +215,7 @@ wk.add {
 	set_key.cmd('mr', 'RenderMarkdown toggle', 'Toggle render'),
 	set_key.cmd('mv', 'MarkdownPreviewToggle', 'Browser preview'),
 
-	-- rest-nvin --
+	-- rest-nvim --
 	{ '<leader>R', group = 'Rest(http)' },
 	set_key.rest('r', 'run', 'request'),
 	set_key.rest('l', 'last', 'last request'),

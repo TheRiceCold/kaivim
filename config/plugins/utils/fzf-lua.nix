@@ -2,9 +2,7 @@
   plugins.fzf-lua.enable = true;
   extraConfigLua = ''
     require'fzf-lua'.setup {
-      winopts = {
-        preview = { default = 'bat_native' }
-      },
+      winopts = { },
       fzf_opts = { ['--ansi'] = false },
       files = {
         git_icons = false,
